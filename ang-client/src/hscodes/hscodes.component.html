@@ -2,7 +2,8 @@
 Something else!
 
 <ul>
-  <li *ngFor="let hscode of hscodes">
+  <li *ngFor="let hscode of hscodes"
+      (click)="gotoDetail(hscode)">
     {{hscode.code}}
   </li>
 </ul>

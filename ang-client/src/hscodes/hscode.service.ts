@@ -15,6 +15,11 @@ export class HscodeService {
       .catch(this.handleError);
   }
 
+  getHscode(id: number) {
+    return this.getHscodes()
+      .then(hscodes => hscodes.find(hscode => hscode.id === id));
+  }
+
   private handleError(error: any) {
     console.error('An error occurred', error);
 

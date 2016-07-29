@@ -5,6 +5,8 @@ import {ROUTER_DIRECTIVES, RouterConfig} from '@angular/router';
 import {Main} from './app/main';
 import {HTTP_PROVIDERS} from '@angular/http';
 import {HscodesComponent} from './hscodes/hscodes.component';
+import {HscodeDetailComponent} from './hscodes/hscode-detail.component';
+
 
 @Component({
   selector: 'root',
@@ -17,11 +19,15 @@ export class Root {
 
 export const routes: RouterConfig = [
   {
-    path: '',
-    component: Main
-  },
-  {
     path: 'hscodes',
     component: HscodesComponent
+  },
+  {
+    path: 'hscode/:id',
+    component: HscodeDetailComponent
+  },
+  {
+    path: '',
+    component: Main
   }
 ];
