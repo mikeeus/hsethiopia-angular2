@@ -16,5 +16,9 @@ export const routes: RouterConfig = [
   {
     path: '',
     component: Main
+  },
+  {
+    path: "hscodes",
+    component: Hscodes
   }
 ];
