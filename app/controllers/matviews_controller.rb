@@ -36,4 +36,23 @@ class MatviewsController < ApplicationController
       hscodeAnnualExports: @hscode_annual_exports
     }
   end
+
+  def refresh_matviews
+    ActiveRecord::Base.connection.execute %{
+      REFRESH MATERIALIZED VIEW CONCURRENTLY
+        country_annual_imports
+    }
+    ActiveRecord::Base.connection.execute %{
+      REFRESH MATERIALIZED VIEW CONCURRENTLY
+        country_annual_exports
+    }
+    ActiveRecord::Base.connection.execute %{
+      REFRESH MATERIALIZED VIEW CONCURRENTLY
+        hscode_annual_imports
+    }
+    ActiveRecord::Base.connection.execute %{
+      REFRESH MATERIALIZED VIEW CONCURRENTLY
+        hscode_annual_exports
+    }
+  end
 end
