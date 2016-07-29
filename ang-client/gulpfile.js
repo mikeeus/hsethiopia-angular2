@@ -18,6 +18,12 @@ gulp.task('serve:dist', gulp.series('default', 'browsersync:dist'));
 gulp.task('default', gulp.series('clean', 'build'));
 gulp.task('watch', watch);
 
+gulp.task('rails' function(){
+  exec('rails server');
+});
+
+gulp.task('serve:full-stack', ['rails', 'serve']);
+
 function reloadBrowserSync(cb) {
   browserSync.reload();
   cb();
