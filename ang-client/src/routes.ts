@@ -3,6 +3,7 @@
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, RouterConfig} from '@angular/router';
 import {Main} from './app/main';
+import {HscodesComponent} from './hscodes/hscodes.component';
 
 @Component({
   selector: 'root',
@@ -19,6 +20,6 @@ export const routes: RouterConfig = [
   },
   {
     path: "hscodes",
-    component: Hscodes
+    component: HscodesComponent
   }
 ];

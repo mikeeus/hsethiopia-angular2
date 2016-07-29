@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'hscodes',
-  template: `<h1>Hsodes</h1>`
+  templateUrl: '/hscodes/hscodes.component.html'
 })
+
 export class HscodesComponent {
 }
