@@ -46,6 +46,44 @@ CREATE TABLE ar_internal_metadata (
 
 
 --
+-- Name: exports; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE exports (
+    id integer NOT NULL,
+    hscode_id integer,
+    year integer NOT NULL,
+    code integer NOT NULL,
+    description character varying NOT NULL,
+    destination character varying NOT NULL,
+    net_mass numeric(13,2) NOT NULL,
+    fob_usd numeric(13,2) NOT NULL,
+    fob_etb numeric(13,2) NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: exports_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE exports_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: exports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE exports_id_seq OWNED BY exports.id;
+
+
+--
 -- Name: hscodes; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -87,6 +125,45 @@ ALTER SEQUENCE hscodes_id_seq OWNED BY hscodes.id;
 
 
 --
+-- Name: imports; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE imports (
+    id integer NOT NULL,
+    hscode_id integer,
+    year integer NOT NULL,
+    code integer NOT NULL,
+    description character varying NOT NULL,
+    country_origin character varying NOT NULL,
+    country_consignment character varying NOT NULL,
+    net_mass numeric(13,2) NOT NULL,
+    cif_usd numeric(13,2) NOT NULL,
+    cif_etb numeric(13,2) NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: imports_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE imports_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: imports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE imports_id_seq OWNED BY imports.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -99,7 +176,21 @@ CREATE TABLE schema_migrations (
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY exports ALTER COLUMN id SET DEFAULT nextval('exports_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY hscodes ALTER COLUMN id SET DEFAULT nextval('hscodes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY imports ALTER COLUMN id SET DEFAULT nextval('imports_id_seq'::regclass);
 
 
 --
@@ -111,11 +202,27 @@ ALTER TABLE ONLY ar_internal_metadata
 
 
 --
+-- Name: exports_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY exports
+    ADD CONSTRAINT exports_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: hscodes_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY hscodes
     ADD CONSTRAINT hscodes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: imports_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY imports
+    ADD CONSTRAINT imports_pkey PRIMARY KEY (id);
 
 
 --
@@ -127,10 +234,82 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
+-- Name: index_exports_on_code; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_exports_on_code ON exports USING btree (code);
+
+
+--
+-- Name: index_exports_on_destination; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_exports_on_destination ON exports USING btree (destination);
+
+
+--
+-- Name: index_exports_on_hscode_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_exports_on_hscode_id ON exports USING btree (hscode_id);
+
+
+--
+-- Name: index_exports_on_year; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_exports_on_year ON exports USING btree (year);
+
+
+--
 -- Name: index_hscodes_on_code; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX index_hscodes_on_code ON hscodes USING btree (code);
+
+
+--
+-- Name: index_imports_on_code; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_imports_on_code ON imports USING btree (code);
+
+
+--
+-- Name: index_imports_on_country_origin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_imports_on_country_origin ON imports USING btree (country_origin);
+
+
+--
+-- Name: index_imports_on_hscode_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_imports_on_hscode_id ON imports USING btree (hscode_id);
+
+
+--
+-- Name: index_imports_on_year; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_imports_on_year ON imports USING btree (year);
+
+
+--
+-- Name: fk_rails_e23c39e1b1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY imports
+    ADD CONSTRAINT fk_rails_e23c39e1b1 FOREIGN KEY (hscode_id) REFERENCES hscodes(id);
+
+
+--
+-- Name: fk_rails_efa612816a; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY exports
+    ADD CONSTRAINT fk_rails_efa612816a FOREIGN KEY (hscode_id) REFERENCES hscodes(id);
 
 
 --
@@ -139,6 +318,6 @@ CREATE INDEX index_hscodes_on_code ON hscodes USING btree (code);
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20160729060631');
+INSERT INTO schema_migrations (version) VALUES ('20160729060631'), ('20160729092824'), ('20160729092850');
 
 
