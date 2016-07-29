@@ -65,6 +65,56 @@ CREATE TABLE exports (
 
 
 --
+-- Name: country_annual_exports; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW country_annual_exports AS
+ SELECT exports.destination AS country,
+    exports.year,
+    sum(exports.fob_usd) AS fob_usd,
+    sum(exports.fob_etb) AS fob_etb,
+    sum(exports.net_mass) AS net_mass
+   FROM exports
+  GROUP BY exports.destination, exports.year
+  WITH NO DATA;
+
+
+--
+-- Name: imports; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE imports (
+    id integer NOT NULL,
+    hscode_id integer,
+    year integer NOT NULL,
+    code integer NOT NULL,
+    description character varying NOT NULL,
+    country_origin character varying NOT NULL,
+    country_consignment character varying NOT NULL,
+    net_mass numeric(13,2) NOT NULL,
+    cif_usd numeric(13,2) NOT NULL,
+    cif_etb numeric(13,2) NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: country_annual_imports; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW country_annual_imports AS
+ SELECT imports.country_origin AS country,
+    imports.year,
+    sum(imports.cif_usd) AS cif_usd,
+    sum(imports.cif_etb) AS cif_etb,
+    sum(imports.net_mass) AS net_mass
+   FROM imports
+  GROUP BY imports.country_origin, imports.year
+  WITH NO DATA;
+
+
+--
 -- Name: exports_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -106,6 +156,40 @@ CREATE TABLE hscodes (
 
 
 --
+-- Name: hscode_annual_exports; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW hscode_annual_exports AS
+ SELECT hscodes.code,
+    hscodes.description,
+    exports.year,
+    sum(exports.fob_usd) AS fob_usd,
+    sum(exports.fob_etb) AS fob_etb,
+    sum(exports.net_mass) AS net_mass
+   FROM (hscodes
+     JOIN exports ON ((hscodes.code = exports.code)))
+  GROUP BY hscodes.code, hscodes.description, exports.year
+  WITH NO DATA;
+
+
+--
+-- Name: hscode_annual_imports; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW hscode_annual_imports AS
+ SELECT hscodes.code,
+    hscodes.description,
+    imports.year,
+    sum(imports.cif_usd) AS cif_usd,
+    sum(imports.cif_etb) AS cif_etb,
+    sum(imports.net_mass) AS net_mass
+   FROM (hscodes
+     JOIN imports ON ((hscodes.code = imports.code)))
+  GROUP BY hscodes.code, hscodes.description, imports.year
+  WITH NO DATA;
+
+
+--
 -- Name: hscodes_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -122,26 +206,6 @@ CREATE SEQUENCE hscodes_id_seq
 --
 
 ALTER SEQUENCE hscodes_id_seq OWNED BY hscodes.id;
-
-
---
--- Name: imports; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE imports (
-    id integer NOT NULL,
-    hscode_id integer,
-    year integer NOT NULL,
-    code integer NOT NULL,
-    description character varying NOT NULL,
-    country_origin character varying NOT NULL,
-    country_consignment character varying NOT NULL,
-    net_mass numeric(13,2) NOT NULL,
-    cif_usd numeric(13,2) NOT NULL,
-    cif_etb numeric(13,2) NOT NULL,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
 
 
 --
@@ -234,6 +298,34 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
+-- Name: country_annual_exports_country_year; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX country_annual_exports_country_year ON country_annual_exports USING btree (country, year);
+
+
+--
+-- Name: country_annual_imports_country_year; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX country_annual_imports_country_year ON country_annual_imports USING btree (country, year);
+
+
+--
+-- Name: hscode_annual_exports_code_year; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX hscode_annual_exports_code_year ON hscode_annual_exports USING btree (code, year);
+
+
+--
+-- Name: hscode_annual_imports_code_year; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX hscode_annual_imports_code_year ON hscode_annual_imports USING btree (code, year);
+
+
+--
 -- Name: index_exports_on_code; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -318,6 +410,6 @@ ALTER TABLE ONLY exports
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20160729060631'), ('20160729092824'), ('20160729092850');
+INSERT INTO schema_migrations (version) VALUES ('20160729060631'), ('20160729092824'), ('20160729092850'), ('20160729191322'), ('20160729191502'), ('20160729191701'), ('20160729191745');
 
 
