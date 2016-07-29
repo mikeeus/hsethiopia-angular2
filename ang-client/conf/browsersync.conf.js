@@ -9,7 +9,7 @@ module.exports = function () {
         conf.paths.src
       ],
       middleware:[
-        proxyMiddleWare('/api', { target: "localhost:3002" })
+        proxyMiddleWare('/api', { target: "localhost:3000" })
       ]
     },
     open: false

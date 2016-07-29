@@ -5,7 +5,7 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 
 import {bootstrap} from '@angular/platform-browser-dynamic';
-
+// import './rxjs-operators';
 import './index.scss';
 
 import {provideRouter} from '@angular/router';
