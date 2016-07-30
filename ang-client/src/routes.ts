@@ -9,12 +9,21 @@ import {HscodesComponent} from './hscodes/hscodes.component';
 import {HscodeDetailComponent} from './hscodes/hscode-detail.component';
 import {YearComponent} from './year/year.component';
 import {CountryComponent} from './country/country.component';
-
+import {Header} from './app/header';
+import {Footer} from './app/footer';
 
 @Component({
   selector: 'root',
-  template: '<router-outlet></router-outlet>',
-  directives: [ROUTER_DIRECTIVES],
+  template: `
+    <Header></Header>
+    <router-outlet></router-outlet>
+    <Footer></Footer>
+   `,
+  directives: [
+    ROUTER_DIRECTIVES,
+    Header,
+    Footer
+  ],
   providers: [HTTP_PROVIDERS]
 })
 export class Root {
