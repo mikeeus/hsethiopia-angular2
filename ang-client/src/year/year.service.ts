@@ -3,6 +3,10 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {Year} from './year';
+import {AnnualCountryImports} from './annual-country-imports';
+import {AnnualCountryExports} from './annual-country-exports';
+import {AnnualHscodeImports} from './annual-hscode-imports';
+import {AnnualHscodeExports} from './annual-hscode-exports';
 
 @Injectable()
 export class YearService {
@@ -14,6 +18,16 @@ export class YearService {
       .then(response => response.json() as Year)
       .catch(this.handleError);
   }
+
+  // getData(year: number) {
+  //   return this.getYearData(year)
+  //     .then(yearData => {
+  //       yearData.annualCountryImports as AnnualCountryImports;
+  //       yearData.annualCountryExports as AnnualCountryExports;
+  //       yearData.annualHscodeImports as AnnualHscodeImports;
+  //       yearData.annualHscodeExports as AnnualHscodeExports;
+  //     });
+  // }
 
   private handleError(error: any) {
     console.error('An error occurred', error);

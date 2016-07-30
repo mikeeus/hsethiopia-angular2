@@ -1,2 +1,93 @@
-<h1>Year</h1>
-{{year.annualCountryImports[0]}}
+<h1 *ngIf="year">{{year}}</h1>
+<div *ngIf="countryImports">
+
+  <h2>Imports by Country</h2>
+  <table>
+    <thead>
+      <th>Country</th>
+      <th>Year</th>
+      <th>Net Mass</th>
+      <th>CIF USD</th>
+      <th>CIF ETB</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let countryImport of countryImports">
+      <td>{{countryImport.country}}</td>
+      <td>{{countryImport.year}}</td>
+      <td>{{countryImport.net_mass}}</td>
+      <td>{{countryImport.cif_usd}}</td>
+      <td>{{countryImport.cif_etb}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="countryExports">
+  <h2>Exports by Country</h2>
+  <table>
+    <thead>
+      <th>Country</th>
+      <th>Year</th>
+      <th>Net Mass</th>
+      <th>CIF USD</th>
+      <th>CIF ETB</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let countryExport of countryExports">
+      <td>{{countryExport.country}}</td>
+      <td>{{countryExport.year}}</td>
+      <td>{{countryExport.net_mass}}</td>
+      <td>{{countryExport.fob_usd}}</td>
+      <td>{{countryExport.fob_etb}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="hscodeImports">
+  <h2>Imports by Hscode</h2>
+  <table>
+    <thead>
+      <th>Code</th>
+      <th>description</th>
+      <th>Year</th>
+      <th>Net Mass</th>
+      <th>CIF USD</th>
+      <th>CIF ETB</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hscodeImport of hscodeImports">
+      <td>{{hscodeImport.code}}</td>
+      <td>{{hscodeImport.description}}</td>
+      <td>{{hscodeImport.year}}</td>
+      <td>{{hscodeImport.net_mass}}</td>
+      <td>{{hscodeImport.cif_usd}}</td>
+      <td>{{hscodeImport.cif_etb}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="hscodeExports">
+  <h2>Exports by Exports</h2>
+  <table>
+    <thead>
+      <th>Code</th>
+      <th>description</th>
+      <th>Year</th>
+      <th>Net Mass</th>
+      <th>CIF USD</th>
+      <th>CIF ETB</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let hscodeExport of hscodeExports">
+      <td>{{hscodeImport.code}}</td>
+      <td>{{hscodeImport.description}}</td>
+      <td>{{hscodeExport.year}}</td>
+      <td>{{hscodeExport.net_mass}}</td>
+      <td>{{hscodeExport.fob_usd}}</td>
+      <td>{{hscodeExport.fob_etb}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
