@@ -29,7 +29,7 @@ export const routes: RouterConfig = [
     component: HscodeDetailComponent
   },
   {
-    path: 'years',
+    path: 'year/:year',
     component: YearComponent
   },
   {
