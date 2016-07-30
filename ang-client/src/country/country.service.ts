@@ -13,7 +13,7 @@ export class CountryService {
     return this.http.get('http://localhost:3000/country/' + country)
       .toPromise()
       .then(response => response.json() as Country)
-      .catch(this.handleError)
+      .catch(this.handleError);
   }
 
   private handleError(error: any) {

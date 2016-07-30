@@ -1,1 +1,49 @@
 <h1 *ngIf="country">{{country}}</h1>
+
+<div *ngIf="countryImports">
+  <h2>Imports</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Year</th>
+        <th>CIF USD</th>
+        <th>CIF ETB</th>
+        <th>Net Mass</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let countryImport of countryImports">
+        <td>{{countryImport.country}}</td>
+        <td>{{countryImport.year}}</td>
+        <td>{{countryImport.cif_usd}}</td>
+        <td>{{countryImport.cif_etb}}</td>
+        <td>{{countryImport.net_mass}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="countryExports">
+  <h2>Exports</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Year</th>
+        <th>FOB USD</th>
+        <th>FOB ETB</th>
+        <th>Net Mass</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let countryExport of countryExports">
+        <td>{{countryExport.country}}</td>
+        <td>{{countryExport.year}}</td>
+        <td>{{countryExport.fob_usd}}</td>
+        <td>{{countryExport.fob_etb}}</td>
+        <td>{{countryExport.net_mass}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
