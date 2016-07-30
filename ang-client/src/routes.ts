@@ -8,6 +8,7 @@ import {HTTP_PROVIDERS} from '@angular/http';
 import {HscodesComponent} from './hscodes/hscodes.component';
 import {HscodeDetailComponent} from './hscodes/hscode-detail.component';
 import {YearComponent} from './year/year.component';
+import {CountryComponent} from './country/country.component';
 
 
 @Component({
@@ -31,6 +32,10 @@ export const routes: RouterConfig = [
   {
     path: 'year/:year',
     component: YearComponent
+  },
+  {
+    path: 'country/:country',
+    component: CountryComponent
   },
   {
     path: '',
