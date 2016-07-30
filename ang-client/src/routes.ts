@@ -4,8 +4,10 @@ import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, RouterConfig} from '@angular/router';
 import {Main} from './app/main';
 import {HTTP_PROVIDERS} from '@angular/http';
+
 import {HscodesComponent} from './hscodes/hscodes.component';
 import {HscodeDetailComponent} from './hscodes/hscode-detail.component';
+import {YearComponent} from './year/year.component';
 
 
 @Component({
@@ -25,6 +27,10 @@ export const routes: RouterConfig = [
   {
     path: 'hscode/:id',
     component: HscodeDetailComponent
+  },
+  {
+    path: 'years',
+    component: YearComponent
   },
   {
     path: '',
