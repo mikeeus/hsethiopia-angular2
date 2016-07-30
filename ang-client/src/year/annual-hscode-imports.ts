@@ -1,4 +1,4 @@
-export class AnnualHscodeImports{
+export class AnnualHscodeImports {
   code: string;
   description: string;
   year: number;

@@ -1,4 +1,4 @@
-export class AnnualCountryExports{
+export class AnnualCountryExports {
   country: string;
   year: number;
   fob_usd: number;

@@ -3,16 +3,14 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {Country} from './country';
-import {CountryImports} from './country-imports';
-import {CountryExports} from './country-exports';
 
 @Injectable()
 export class CountryService {
   countryUrl: 'http://localhost:3000/country/';
   constructor(private http: Http) {}
 
-  getCountryData(country: number) {
-    return this.http.get(this.countryUrl + country)
+  getCountryData(country: string) {
+    return this.http.get('http://localhost:3000/country/' + country)
       .toPromise()
       .then(response => response.json() as Country)
       .catch(this.handleError)

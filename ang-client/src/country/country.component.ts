@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
-import {Country} from './country';
-import {CountryImports} from './country-imports';
-import {CountryExports} from './country-exports';
 import {CountryService} from './country.service';
+import {Country} from './country';
+import {CountryAnnualImports} from './country-annual-imports';
+import {CountryAnnualExports} from './country-annual-exports';
 
 @Component({
   selector: 'country',
@@ -15,12 +15,12 @@ import {CountryService} from './country.service';
 })
 export class CountryComponent implements OnInit {
   country: string;
-  countryImports: CountryImports;
-  countryExports: CountryExports;
+  countryImports: CountryAnnualImports[];
+  countryExports: CountryAnnualExports[];
   sub: any;
   constructor(
     private countryService: CountryService,
-    private route: Router
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -29,8 +29,8 @@ export class CountryComponent implements OnInit {
         this.country = params['country'];
         this.countryService.getCountryData(this.country)
             .then(countryData => {
-              this.countryImports = countryData.countryImports;
-              this.countryExports = countryData.countryExports
+              this.countryImports = countryData.countryAnnualImports;
+              this.countryExports = countryData.countryAnnualExports
             });
       }
     });

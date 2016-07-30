@@ -1,4 +1,4 @@
-export class CountryImports {
+export class CountryAnnualImports {
   country: string;
   year: number;
   cif_usd: number;

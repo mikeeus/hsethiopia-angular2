@@ -16,11 +16,10 @@ import {AnnualHscodeExports} from './annual-hscode-exports';
   ]
 })
 export class YearComponent implements OnInit {
-  year: number;
-  countryImports: AnnualCountryImports[];
-  countryExports: AnnualCountryExports[];
-  hscodeImports: AnnualHscodeImports[];
-  hscodeExports: AnnualHscodeExports[];
+  annualCountryImports: AnnualCountryImports[];
+  annualCountryExports: AnnualCountryExports[];
+  annualHscodeImports: AnnualHscodeImports[];
+  annualHscodeExports: AnnualHscodeExports[];
   sub: any;
   constructor(
     private yearService: YearService,
@@ -30,13 +29,13 @@ export class YearComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe( params => {
       if (params['year'] !== undefined) {
-        this.year = +params['year'];
-        this.yearService.getYearData(this.year)
+        let year = +params['year'];
+        this.yearService.getYearData(year)
             .then(yearData => {
-              this.countryImports = yearData.annualCountryImports;
-              this.countryExports = yearData.annualCountryExports;
-              this.hscodeImports = yearData.annualHscodeImports;
-              this.hscodeExports = yearData.annualHscodeExports;
+              this.annualCountryImports = yearData.annualCountryImports;
+              this.annualCountryExports = yearData.annualCountryExports;
+              this.annualHscodeImports = yearData.annualHscodeImports;
+              this.annualHscodeExports = yearData.annualHscodeExports;
             });
       }
     });
