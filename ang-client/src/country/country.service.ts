@@ -8,10 +8,11 @@ import {CountryExports} from './country-exports';
 
 @Injectable()
 export class CountryService {
+  countryUrl: 'http://localhost:3000/country/';
   constructor(private http: Http) {}
 
   getCountryData(country: number) {
-    return this.http.get('http://localhost:3000/country/' + country)
+    return this.http.get(this.countryUrl + country)
       .toPromise()
       .then(response => response.json() as Country)
       .catch(this.handleError)
