@@ -18,19 +18,19 @@ import {countries} from './countries';
 })
 export class Header {
   constructor(private router: Router) {}
-  public isCollapsed:boolean = true;
-  public disabled:boolean = false;
-  public status:{isopen:boolean} = {isopen: false};
-  public items:Array<string> = ['The first choice!',
+  public isCollapsed: boolean = true;
+  public disabled: boolean = false;
+  public status: {isopen: boolean} = {isopen: false};
+  public items: Array<string> = ['The first choice!',
   'Choice 2', 'And a third!'
   ];
-  public countriesLinks:Array<string> = countries;
-  public yearsLinks:Array<number> = years;
+  public countriesLinks: Array<string> = countries;
+  public yearsLinks: Array<number> = years;
 
-  public toggled(open:boolean):void {
+  public toggled(open: boolean): void {
   }
 
-  public toggleDropdown($event:MouseEvent):void{
+  public toggleDropdown($event: MouseEvent): void {
     $event.preventDefault();
     $event.stopPropagation();
     this.status.isopen = !this.status.isopen;
