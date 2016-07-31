@@ -15,3 +15,9 @@ button.navbar-toggle{
     border: 2px solid rgba(255, 255, 255, 1);
   }
 }
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}

@@ -19,7 +19,7 @@
           <a href id="simple-dropdown" dropdownToggle>
             Countries <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+          <ul class="dropdown-menu scrollable-menu" dropdownMenu aria-labelledby="simple-dropdown">
             <li *ngFor="let choice of countriesLinks">
               <a class="dropdown-item" (click)="gotoCountry(choice)">{{choice}}</a>
             </li>
@@ -31,7 +31,7 @@
           <a href id="simple-dropdown" dropdownToggle>
             Annual Summaries <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+          <ul class="dropdown-menu scrollable-menu" dropdownMenu aria-labelledby="simple-dropdown">
             <li *ngFor="let choice of yearsLinks">
               <a class="dropdown-item" (click)="gotoYear(choice)">{{choice}}</a>
             </li>
