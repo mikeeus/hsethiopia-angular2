@@ -9,6 +9,9 @@ import {SummaryChartComponent} from './../charts/summary-chart.component';
 @Component({
   selector: 'hscodes',
   templateUrl: '/hscodes/hscodes.component.html',
+  directives: [
+      SummaryChartComponent
+  ],
   providers: [
     HscodeService
   ]

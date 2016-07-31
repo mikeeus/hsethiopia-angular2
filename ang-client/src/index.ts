@@ -4,6 +4,7 @@ import 'es6-shim';
 import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'chart.js';
 
 import {bootstrap} from '@angular/platform-browser-dynamic';
 // import './rxjs-operators';
