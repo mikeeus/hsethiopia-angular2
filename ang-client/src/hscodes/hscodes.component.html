@@ -2,6 +2,7 @@
   <h2>Ethiopian Import and Export Statistics</h2>
   <p>Search HS Codes below, or select a country or annual summary from the links above.</p>
 </div>
+
 <div class="row">
   <div class="col-lg-6">
     <div class="input-group">
@@ -13,9 +14,6 @@
   </div><!-- /.col-lg-6 -->
 </div>
 
-<div class="col-sm-6 col-sm-offset-3">
-  Is this working?
-</div>
 <ul>
   <li *ngFor="let hscode of hscodes"
       (click)="gotoDetail(hscode)">
