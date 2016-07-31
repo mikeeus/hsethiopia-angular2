@@ -20,7 +20,7 @@
             Countries
           </a>
           <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
-            <li *ngFor="let choice of countries">
+            <li *ngFor="let choice of countriesLinks">
               <a class="dropdown-item" (click)="gotoCountry(choice)">{{choice}}</a>
             </li>
           </ul>
@@ -32,7 +32,7 @@
             Annual Summaries
           </a>
           <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
-            <li *ngFor="let choice of years">
+            <li *ngFor="let choice of yearsLinks">
               <a class="dropdown-item" (click)="gotoYear(choice)">{{choice}}</a>
             </li>
           </ul>

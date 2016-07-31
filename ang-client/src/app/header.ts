@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {DROPDOWN_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import {years} from './years';
+import {countries} from './countries';
 
 @Component({
   selector: 'Header',
@@ -20,12 +22,8 @@ export class Header {
   public items:Array<string> = ['The first choice!',
   'Choice 2', 'And a third!'
   ];
-  public countries:Array<string> = ['Germany',
-  'China', 'United States'
-  ];
-  public years:Array<number> = [
-    2016, 2015, 2014, 2013, 2012, 2011
-  ];
+  public countriesLinks:Array<string> = countries;
+  public yearsLinks:Array<number> = years;
 
   public toggled(open:boolean):void {
     console.log('Drop is now: ', open);
