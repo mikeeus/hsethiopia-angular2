@@ -15,6 +15,7 @@ import {Footer} from './app/footer';
 @Component({
   selector: 'root',
   templateUrl: './root.html',
+  styleUrls: [],
   directives: [
     ROUTER_DIRECTIVES,
     Header,

@@ -3,7 +3,10 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'Header',
-  template: require('./header.html')
+  template: require('./header.html'),
+  styleUrls: [
+    './app/header.scss'
+  ]
 })
 export class Header {
   constructor(private router: Router) {}

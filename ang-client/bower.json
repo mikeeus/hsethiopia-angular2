@@ -1,0 +1,27 @@
+{
+  "name": "hsethiopia",
+  "description": "Ethiopian import and export statistics web app.",
+  "main": "index.html",
+  "authors": [
+    "Mikias <itsmikias@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "HSEthiopia",
+    "Ethiopia",
+    "Import",
+    "Export",
+    "Trade",
+    "HS",
+    "Code"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
