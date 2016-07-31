@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {CORE_DIRECTIVES} from '@angular/common';
-import {DROPDOWN_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import {DROPDOWN_DIRECTIVES, CollapseDirective} from 'ng2-bootstrap/ng2-bootstrap';
 import {years} from './years';
 import {countries} from './countries';
 
@@ -9,7 +9,8 @@ import {countries} from './countries';
   selector: 'Header',
   template: require('./header.html'),
   directives: [
-    DROPDOWN_DIRECTIVES
+    DROPDOWN_DIRECTIVES,
+    CollapseDirective
   ],
   styleUrls: [
     './app/header.scss'
@@ -17,6 +18,7 @@ import {countries} from './countries';
 })
 export class Header {
   constructor(private router: Router) {}
+  public isCollapsed:boolean = true;
   public disabled:boolean = false;
   public status:{isopen:boolean} = {isopen: false};
   public items:Array<string> = ['The first choice!',
