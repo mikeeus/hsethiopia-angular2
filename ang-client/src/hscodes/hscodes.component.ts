@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {Hscode} from './hscode';
 import {HscodeService} from './hscode.service';
 
+import {SummaryChartComponent} from './../charts/summary-chart.component';
+
 @Component({
   selector: 'hscodes',
   templateUrl: '/hscodes/hscodes.component.html',
