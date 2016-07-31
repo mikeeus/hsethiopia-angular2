@@ -21,6 +21,7 @@ export class YearComponent implements OnInit {
   annualHscodeImports: AnnualHscodeImports[];
   annualHscodeExports: AnnualHscodeExports[];
   sub: any;
+  year: number;
   constructor(
     private yearService: YearService,
     private route: ActivatedRoute
@@ -29,8 +30,8 @@ export class YearComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe( params => {
       if (params['year'] !== undefined) {
-        let year = +params['year'];
-        this.yearService.getYearData(year)
+        this.year = +params['year'];
+        this.yearService.getYearData(this.year)
             .then(yearData => {
               this.annualCountryImports = yearData.annualCountryImports;
               this.annualCountryExports = yearData.annualCountryExports;

@@ -1,94 +1,119 @@
-<h1 *ngIf="year">{{year}}</h1>
+<h1 class="text-center" *ngIf="year">{{year}}</h1>
+
+<!-- Add chart here -->
 
 <div *ngIf="annualCountryImports">
-
-  <h2>Imports by Country</h2>
-  <table>
-    <thead>
-      <th>Country</th>
-      <th>Year</th>
-      <th>Net Mass</th>
-      <th>CIF USD</th>
-      <th>CIF ETB</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let annualCountryImport of annualCountryImports">
-      <td>{{annualCountryImport.country}}</td>
-      <td>{{annualCountryImport.year}}</td>
-      <td>{{annualCountryImport.net_mass}}</td>
-      <td>{{annualCountryImport.cif_usd}}</td>
-      <td>{{annualCountryImport.cif_etb}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="panel panel-warning">
+    <div class="panel-heading text-center">
+      Imports by Country
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <th>Country</th>
+          <th>Year</th>
+          <th>Net Mass</th>
+          <th>CIF USD</th>
+          <th>CIF ETB</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let annualCountryImport of annualCountryImports">
+          <td>{{annualCountryImport.country}}</td>
+          <td>{{annualCountryImport.year}}</td>
+          <td>{{annualCountryImport.net_mass}}</td>
+          <td>{{annualCountryImport.cif_usd}}</td>
+          <td>{{annualCountryImport.cif_etb}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="annualCountryExports">
-  <h2>Exports by Country</h2>
-  <table>
-    <thead>
-      <th>Country</th>
-      <th>Year</th>
-      <th>Net Mass</th>
-      <th>CIF USD</th>
-      <th>CIF ETB</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let annualCountryExport of annualCountryExports">
-      <td>{{annualCountryExport.country}}</td>
-      <td>{{annualCountryExport.year}}</td>
-      <td>{{annualCountryExport.net_mass}}</td>
-      <td>{{annualCountryExport.fob_usd}}</td>
-      <td>{{annualCountryExport.fob_etb}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="panel panel-success">
+    <div class="panel-heading text-center">
+      Exports by Country
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <th>Country</th>
+          <th>Year</th>
+          <th>Net Mass</th>
+          <th>CIF USD</th>
+          <th>CIF ETB</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let annualCountryExport of annualCountryExports">
+          <td>{{annualCountryExport.country}}</td>
+          <td>{{annualCountryExport.year}}</td>
+          <td>{{annualCountryExport.net_mass}}</td>
+          <td>{{annualCountryExport.fob_usd}}</td>
+          <td>{{annualCountryExport.fob_etb}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="annualHscodeImports">
-  <h2>Imports by Hscode</h2>
-  <table>
-    <thead>
-      <th>Code</th>
-      <th>description</th>
-      <th>Year</th>
-      <th>Net Mass</th>
-      <th>CIF USD</th>
-      <th>CIF ETB</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let annualHscodeImport of annualHscodeImports">
-      <td>{{annualHscodeImport.code}}</td>
-      <td>{{annualHscodeImport.description}}</td>
-      <td>{{annualHscodeImport.year}}</td>
-      <td>{{annualHscodeImport.net_mass}}</td>
-      <td>{{annualHscodeImport.cif_usd}}</td>
-      <td>{{annualHscodeImport.cif_etb}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="panel panel-warning">
+    <div class="panel-heading text-center">
+      Imports by Hscode
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <th>Code</th>
+          <th>description</th>
+          <th>Year</th>
+          <th>Net Mass</th>
+          <th>CIF USD</th>
+          <th>CIF ETB</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let annualHscodeImport of annualHscodeImports">
+          <td>{{annualHscodeImport.code}}</td>
+          <td>{{annualHscodeImport.description}}</td>
+          <td>{{annualHscodeImport.year}}</td>
+          <td>{{annualHscodeImport.net_mass}}</td>
+          <td>{{annualHscodeImport.cif_usd}}</td>
+          <td>{{annualHscodeImport.cif_etb}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="annualHscodeExports">
-  <h2>Exports by Exports</h2>
-  <table>
-    <thead>
-      <th>Code</th>
-      <th>description</th>
-      <th>Year</th>
-      <th>Net Mass</th>
-      <th>CIF USD</th>
-      <th>CIF ETB</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let annualHscodeExport of annualHscodeExports">
-      <td>{{annualHscodeExport.code}}</td>
-      <td>{{annualHscodeExport.description}}</td>
-      <td>{{annualHscodeExport.year}}</td>
-      <td>{{annualHscodeExport.net_mass}}</td>
-      <td>{{annualHscodeExport.fob_usd}}</td>
-      <td>{{annualHscodeExport.fob_etb}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="panel panel-success">
+    <div class="panel-heading text-center">
+      Exports by Hscode
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <th>Code</th>
+          <th>description</th>
+          <th>Year</th>
+          <th>Net Mass</th>
+          <th>CIF USD</th>
+          <th>CIF ETB</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let annualHscodeExport of annualHscodeExports">
+          <td>{{annualHscodeExport.code}}</td>
+          <td>{{annualHscodeExport.description}}</td>
+          <td>{{annualHscodeExport.year}}</td>
+          <td>{{annualHscodeExport.net_mass}}</td>
+          <td>{{annualHscodeExport.fob_usd}}</td>
+          <td>{{annualHscodeExport.fob_etb}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
