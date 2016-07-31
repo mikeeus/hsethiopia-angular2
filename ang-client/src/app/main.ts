@@ -1,12 +1,11 @@
 import {Component} from '@angular/core';
 import {Header} from './header';
 import {Title} from './title';
-z
 import {Footer} from './footer';
 
 @Component({
   selector: 'App',
   template: require('./main.html'),
-  directives: [Header, Title, Techs, Footer]
+  directives: [Header, Title, Footer]
 })
 export class Main {}
