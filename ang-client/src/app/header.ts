@@ -26,7 +26,6 @@ export class Header {
   public yearsLinks:Array<number> = years;
 
   public toggled(open:boolean):void {
-    console.log('Drop is now: ', open);
   }
 
   public toggleDropdown($event:MouseEvent):void{
