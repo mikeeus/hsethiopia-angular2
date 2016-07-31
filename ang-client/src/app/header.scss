@@ -1,3 +1,16 @@
-#navigation-bar{
-  background-color: blue !important; 
+.navigation-bar{
+  background-color: black !important; 
+}
+
+button.navbar-toggle{
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  &:hover{
+    border: 2px solid rgba(255, 255, 255, 1);
+  }
+}
+.icon-bar{
+  background: rgba(255, 255, 255, 0.7) !important;
+  &:hover{
+    border: 2px solid rgba(255, 255, 255, 1);
+  }
 }
