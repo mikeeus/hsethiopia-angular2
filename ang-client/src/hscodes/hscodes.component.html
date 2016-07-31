@@ -4,21 +4,30 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search HS Codes...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+  <div class="homepage-searchbar">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search HS Codes...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div>
 </div>
 
-<summary-chart></summary-chart>
-
-<ul>
-  <li *ngFor="let hscode of hscodes"
-      (click)="gotoDetail(hscode)">
-    {{hscode.code}}
-  </li>
-</ul>
+<div class="container-fluid">
+  <table class="table">
+    <thead>
+      <th>Code</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hscode of hscodes"
+          (click)="gotoDetail(hscode)">
+        <td>{{hscode.code}}</td>
+        <td>{{hscode.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
