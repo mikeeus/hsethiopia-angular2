@@ -28,10 +28,6 @@ export class Root {
 
 export const routes: RouterConfig = [
   {
-    path: 'hscodes',
-    component: HscodesComponent
-  },
-  {
     path: 'hscode/:id',
     component: HscodeDetailComponent
   },
@@ -45,6 +41,6 @@ export const routes: RouterConfig = [
   },
   {
     path: '',
-    component: Main
+    component: HscodesComponent
   }
 ];
