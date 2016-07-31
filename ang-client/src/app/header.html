@@ -17,7 +17,7 @@
         <!-- Countries -->
         <li dropdown (onToggle)="toggled($event)">
           <a href id="simple-dropdown" dropdownToggle>
-            Countries
+            Countries <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
             <li *ngFor="let choice of countriesLinks">
@@ -29,7 +29,7 @@
         <!-- Years -->
         <li dropdown (onToggle)="toggled($event)">
           <a href id="simple-dropdown" dropdownToggle>
-            Annual Summaries
+            Annual Summaries <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
             <li *ngFor="let choice of yearsLinks">
