@@ -9,6 +9,7 @@ import {HscodesComponent} from './hscodes/hscodes.component';
 import {HscodeDetailComponent} from './hscodes/hscode-detail.component';
 import {YearComponent} from './year/year.component';
 import {CountryComponent} from './country/country.component';
+import {SummaryChartComponent} from './charts/summary-chart.component';
 import {Header} from './app/header';
 import {Footer} from './app/footer';
 
@@ -38,6 +39,10 @@ export const routes: RouterConfig = [
   {
     path: 'country/:country',
     component: CountryComponent
+  },
+  {
+    path: 'summary-chart',
+    component: SummaryChartComponent
   },
   {
     path: '',
