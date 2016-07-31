@@ -1,14 +1,4 @@
 export const countries = [
- "Turkey", 
- "Italy", 
- "India", 
- "United Arab Emirates", 
- "Egypt", 
- "Ukraine", 
- "China", 
- "United Kingdom", 
- "Belgium",
- "Cameroon", 
- "Congo", 
- "Israel"
-]
+  "Belgium", "Cameroon", "China", "Congo", "Egypt", "India", "Israel", "Italy", "Turkey", "Ukraine", "United Arab Emirates", "United Kingdom"
+  ]
+
