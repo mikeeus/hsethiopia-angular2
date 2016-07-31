@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Header} from './header';
 import {Title} from './title';
-import {Techs} from './techs/techs';
+z
 import {Footer} from './footer';
 
 @Component({
