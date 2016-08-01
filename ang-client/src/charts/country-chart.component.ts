@@ -7,6 +7,8 @@ import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 import {CountryChartService} from './country-chart.service';
 import {CountryChart} from '../models/country-chart';
 
+import {years} from './years';
+
 @Component({
   selector: 'country-chart',
   templateUrl: '/charts/country-chart.component.html',
@@ -28,15 +30,16 @@ export class CountryChartComponent implements OnInit {
   sub: any;
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
-    responsive: false
+    responsive: true
+    // Start from zero
   };
-  public barChartLabels: string[] = ['2010', '2011', '2012', '2013', '2014', '2015', '2016'];
+  public barChartLabels: string[] = years;
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
 
   public barChartData: any[] = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: "Imports"},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: "Exports"}
+    {data: [0], label: "Imports"},
+    {data: [0], label: "Exports"}
   ];
 
   public chartClicked(e:any):void {
@@ -62,8 +65,8 @@ export class CountryChartComponent implements OnInit {
     let labels = this.barChartLabels;
     let _countryChartData: Array<any> = new Array(2);
 
-    _countryChartData[0] = {data: new Array(labels.length), labels: "Imports"};
-    _countryChartData[1] = {data: new Array(labels.length), labels: "Exports"};
+    _countryChartData[0] = {data: new Array(labels.length), label: "Imports"};
+    _countryChartData[1] = {data: new Array(labels.length), label: "Exports"};
 
     for (let i = 0; i < labels.length; i++){
       _countryChartData[0].data[i] = countryChart.countryAnnualImports[labels[i]];
