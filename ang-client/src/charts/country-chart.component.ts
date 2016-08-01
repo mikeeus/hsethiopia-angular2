@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 
 import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
@@ -15,7 +15,7 @@ import {CountryChart} from '../models/country-chart';
     FORM_DIRECTIVES
   ]
 })
-export class CountryChartComponent {
+export class CountryChartComponent implements OnInit {
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -26,25 +26,15 @@ export class CountryChartComponent {
 
   public barChartData: any[] = [];
 
-  // events
-  public populateChart(countryChart: CountryChart): void {
-    let labels = this.barChartLabels
-    let _countryChartData: Array<any> = new Array(2);
-    _countryChartData[0] = {data: new Array(labels.length), labels: "Imports"};
-    for (let i = 0; i < labels.length; i++){
-      _countryChartData[0].data[i] = countryChart[labels[i]];
-    }
-    for (let j = 0; j < labels.length; j++){
-      _countryChartData[1].data[j] = countryChart[labels[j]];
-    }
-    this.barChartData = _countryChartData;
-  }
-
   public chartClicked(e:any):void {
     console.log(e);
   }
 
   public chartHovered(e: any): void {
     console.log(e);
+  }
+
+  ngOnInit() {
+
   }
 }
