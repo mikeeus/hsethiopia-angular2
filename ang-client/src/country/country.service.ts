@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import {Country} from './country';
-import {CountryChart} from './country-chart';
+import {Country} from '../models/country';
+import {CountryChart} from '../models/country-chart';
 
 
 @Injectable()

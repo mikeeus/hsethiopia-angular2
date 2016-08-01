@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 
-import {Hscode} from './hscode';
+import {Hscode} from '../models/hscode';
 
 @Injectable()
 export class HscodeService {

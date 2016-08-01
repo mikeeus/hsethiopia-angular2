@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import {Hscode} from './hscode';
+import {Hscode} from '../models/hscode';
 import {HscodeService} from './hscode.service';
 
 @Component({

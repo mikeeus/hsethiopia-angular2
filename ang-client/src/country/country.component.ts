@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {CountryService} from './country.service';
-import {Country} from './country';
-import {CountryAnnualImports} from './country-annual-imports';
-import {CountryAnnualExports} from './country-annual-exports';
+
+import {Country} from '../models/country';
+import {CountryAnnualImports} from '../models/country-annual-imports';
+import {CountryAnnualExports} from '../models/country-annual-exports';
 
 @Component({
   selector: 'country',

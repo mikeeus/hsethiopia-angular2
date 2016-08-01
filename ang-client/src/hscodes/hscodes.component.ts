@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {Hscode} from './hscode';
+import {Hscode} from '../models/hscode';
 import {HscodeService} from './hscode.service';
 
 import {SummaryChartComponent} from './../charts/summary-chart.component';
