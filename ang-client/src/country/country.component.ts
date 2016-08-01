@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 
 import {CountryService} from './country.service';
 
-import {Country} from '../models/country';
+import {CountryChart} from '../models/country-chart';
 import {CountryAnnualImports} from '../models/country-annual-imports';
 import {CountryAnnualExports} from '../models/country-annual-exports';
 
@@ -28,10 +28,10 @@ export class CountryComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       if (params['country'] !== undefined) {
         this.country = params['country'];
-        this.countryService.getCountryData(this.country)
-            .then(countryData => {
-              this.countryImports = countryData.countryAnnualImports;
-              this.countryExports = countryData.countryAnnualExports
+        this.countryService.getCountryChartData(this.country)
+            .then(countryChartData => {
+              this.countryImports = countryChartData.countryAnnualImports;
+              this.countryExports = countryChartData.countryAnnualExports
             });
       }
     });
