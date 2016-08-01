@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {Country} from '../models/country';
-import {CountryChart} from '../models/country-chart';
+import {AnnualChart} from '../models/annual-chart';
 
 
 @Injectable()
@@ -22,7 +22,7 @@ export class CountryService {
   getCountryChartData(country: string) {
     return this.http.get('http://localhost:3000/charts/country/' + country)
       .toPromise()
-      .then(response => response.json() as CountryChart)
+      .then(response => response.json() as AnnualChart)
       .catch(this.handleError);
   }
 

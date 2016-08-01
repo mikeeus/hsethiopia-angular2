@@ -6,7 +6,6 @@ import {AnnualChart} from '../models/annual-chart';
 
 
 @Injectable()
-
 export class HscodeChartService {
   constructor(private http: Http) {}
 // events

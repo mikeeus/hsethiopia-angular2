@@ -6,8 +6,8 @@ class MatviewsController < ApplicationController
     @country_annual_exports = CountryAnnualExport.where(country: @country).group(:year).sum(:fob_usd)
     
     render json: {
-      countryAnnualImports: @country_annual_imports,
-      countryAnnualExports: @country_annual_exports
+      annualImports: @country_annual_imports,
+      annualExports: @country_annual_exports
     }
   end
 

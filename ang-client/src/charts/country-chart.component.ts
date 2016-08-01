@@ -5,7 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 
 import {CountryChartService} from './country-chart.service';
-import {CountryChart} from '../models/country-chart';
+import {AnnualChart} from '../models/annual-chart';
 
 import {years} from './years';
 
@@ -31,37 +31,41 @@ export class CountryChartComponent implements OnInit {
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
-    // Start from zero
+    // scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    // start from zero
   };
   public barChartLabels: string[] = years;
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
-
   public barChartData: any[] = [
     {data: [0], label: "Imports"},
     {data: [0], label: "Exports"}
   ];
 
-  public chartClicked(e:any):void {
+  public chartClicked(e: any):void {
     console.log(e);
   }
-
   public chartHovered(e: any): void {
     console.log(e);
   }
 
   ngOnInit() {
-   this.sub = this.route.params.subscribe(params => {
+    this.sub = this.route.params.subscribe(params => {
       if (params['country'] !== undefined) {
         let country = params['country'];
         this.countryChartService.getChartData(country)
             .then(countryChartData => this.populateChartData(countryChartData));
       }
-
    });
   }
 
-  populateChartData(countryChart: CountryChart) {
+  populateChartData(countryChart: AnnualChart) {
     let labels = this.barChartLabels;
     let _countryChartData: Array<any> = new Array(2);
 
@@ -69,10 +73,10 @@ export class CountryChartComponent implements OnInit {
     _countryChartData[1] = {data: new Array(labels.length), label: "Exports"};
 
     for (let i = 0; i < labels.length; i++){
-      _countryChartData[0].data[i] = countryChart.countryAnnualImports[labels[i]];
+      _countryChartData[0].data[i] = countryChart.annualImports[labels[i]];
     }
     for (let j = 0; j < labels.length; j++){
-      _countryChartData[1].data[j] = countryChart.countryAnnualExports[labels[j]];
+      _countryChartData[1].data[j] = countryChart.annualExports[labels[j]];
     }
 
     this.barChartData = _countryChartData;

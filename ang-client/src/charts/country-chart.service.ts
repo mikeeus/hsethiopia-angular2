@@ -4,9 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 import {AnnualChart} from '../models/annual-chart';
 
-
 @Injectable()
-
 export class CountryChartService {
   constructor(private http: Http) {}
 // events
@@ -14,7 +12,7 @@ export class CountryChartService {
   getChartData(country: string) {
     return this.http.get('http://localhost:3000/charts/country/' + country)
       .toPromise()
-      .then(response => response.json() as AnnualChart)
+      .then(response => response as AnnualChart)
       .catch(this.handleError);
   }
 

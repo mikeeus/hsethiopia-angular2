@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 
 import {CountryService} from './country.service';
 
-import {CountryChart} from '../models/country-chart';
+import {AnnualChart} from '../models/annual-chart';
 
 import {CountryChartComponent} from '../charts/country-chart.component';
 
@@ -20,7 +20,7 @@ import {CountryChartComponent} from '../charts/country-chart.component';
 })
 export class CountryComponent implements OnInit {
   country: string;
-  countryChart: CountryChart;
+  countryChart: AnnualChart;
 
   sub: any;
   constructor(
