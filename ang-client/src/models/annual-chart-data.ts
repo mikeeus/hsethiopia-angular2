@@ -1,4 +1,4 @@
-export class CountryAnnualExports {
+export class AnnualChartData {
   2016: number;
   2015: number;
   2014: number;
