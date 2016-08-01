@@ -1,7 +1,7 @@
-import {CountryAnnualImports} from './country-annual-imports';
-import {CountryAnnualExports} from './country-annual-exports';
+import {Import} from '../models/import';
+import {Export} from '../models/export';
 
 export interface Country {
-  countryAnnualImports: CountryAnnualImports[];
-  countryAnnualExports: CountryAnnualExports[];
+  imports: Import[];
+  exports: Export[];
 }
