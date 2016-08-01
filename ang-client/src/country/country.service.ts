@@ -20,7 +20,7 @@ export class CountryService {
   }
 
   getCountryChartData(country: string) {
-    return this.http.get(this.countryChartUrl + country)
+    return this.http.get('http://localhost:3000/charts/country/' + country)
       .toPromise()
       .then(response => response.json() as CountryChart)
       .catch(this.handleError);
