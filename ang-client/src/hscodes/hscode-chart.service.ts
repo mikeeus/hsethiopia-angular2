@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import {HscodeChart} from '../models/hscode-chart';
+import {AnnualChart} from '../models/annual-chart';
 
 
 @Injectable()
@@ -14,7 +14,7 @@ export class HscodeChartService {
   getChartData(hscode: string) {
     return this.http.get('http://localhost:3000/charts/hscode/' + hscode)
       .toPromise()
-      .then(response => response.json() as HscodeChart)
+      .then(response => response.json() as AnnualChart)
       .catch(this.handleError);
   }
 

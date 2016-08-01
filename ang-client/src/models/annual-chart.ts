@@ -1,6 +1,6 @@
 import {AnnualChartData} from './annual-chart-data';
 
-export interface CountryChart {
+export interface AnnualChart {
   countryAnnualImports: AnnualChartData[];
   countryAnnualExports: AnnualChartData[];
 }
