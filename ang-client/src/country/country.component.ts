@@ -7,9 +7,14 @@ import {CountryChart} from '../models/country-chart';
 import {CountryAnnualImports} from '../models/country-annual-imports';
 import {CountryAnnualExports} from '../models/country-annual-exports';
 
+import {CountryChartComponent} from '../charts/country-chart.component';
+
 @Component({
   selector: 'country',
   templateUrl: '/country/country.component.html',
+  directives: [
+    CountryChartComponent
+  ],
   providers: [
     CountryService
   ]
