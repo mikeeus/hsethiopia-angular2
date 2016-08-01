@@ -8,21 +8,19 @@ import {CountryChart} from '../models/country-chart';
 @Injectable()
 
 export class CountryChartService {
+  constructor(private http: Http) {}
 // events
-  public populateChart(countryChart: CountryChart): void {
-    let labels = this.barChartLabels
-    let _countryChartData: Array<any> = new Array(2);
 
-    _countryChartData[0] = {data: new Array(labels.length), labels: "Imports"};
-    _countryChartData[0] = {data: new Array(labels.length), labels: "Exports"};
+  getChartData(country: string) {
+    return this.http.get('http://localhost:3000/charts/country/' + country)
+      .toPromise()
+      .then(response => response.json() as CountryChart)
+      .catch(this.handleError);
+  }
 
-    for (let i = 0; i < labels.length; i++){
-      _countryChartData[0].data[i] = countryChart[labels[i]];
-    }
-    for (let j = 0; j < labels.length; j++){
-      _countryChartData[1].data[j] = countryChart[labels[j]];
-    }
+  private handleError(error: any) {
+    console.error('An error occurred', error);
 
-    this.barChartData = _countryChartData;
+    return Promise.reject(error.message || error);
   }
 }
