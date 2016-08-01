@@ -18,6 +18,9 @@ export class CountryComponent implements OnInit {
   country: string;
   countryImports: CountryAnnualImports[];
   countryExports: CountryAnnualExports[];
+  countryChartImports: CountryAnnualImports[];
+  countryChartExports: CountryAnnualExports[];
+
   sub: any;
   constructor(
     private countryService: CountryService,
@@ -30,8 +33,8 @@ export class CountryComponent implements OnInit {
         this.country = params['country'];
         this.countryService.getCountryChartData(this.country)
             .then(countryChartData => {
-              this.countryImports = countryChartData.countryAnnualImports;
-              this.countryExports = countryChartData.countryAnnualExports
+              this.countryChartImports = countryChartData.countryAnnualImports;
+              this.countryChartExports = countryChartData.countryAnnualExports
             });
       }
     });
