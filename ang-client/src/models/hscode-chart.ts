@@ -1,7 +1,6 @@
-import {HscodeAnnualImports} from './hscode-annual-imports';
-import {HscodeAnnualExports} from './hscode-annual-exports';
+import {AnnualChartData} from './annual-chart-data';
 
 export interface HscodeChart {
-  hscodeAnnualImports: HscodeAnnualImports[];
-  hscodeAnnualExports: HscodeAnnualExports[];
+  imports: AnnualChartData[];
+  exports: AnnualChartData[];
 }
