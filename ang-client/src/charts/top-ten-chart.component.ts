@@ -49,11 +49,17 @@ export class TopTenChartComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.topTenChartsService.getChartData()
-        .then(response => {
-          this.barChartData = response.chartType;
-          // console.log(response);
-         });
+    this.sub = this.route.params.subscribe(params => {
+      if (params['year'] && params['year'] !== undefined) {
+        let year = +params['year'];
+        this.topTenChartsService.getTopTenChartsData(year)
+            .then(response => {
+              this.barChartData = response.chartType;
+              console.log(response);
+              console.log(response.chartType);
+            });
+      }
+   });
   }
 
 }
