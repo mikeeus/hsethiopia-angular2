@@ -85,7 +85,7 @@ export class HscodeChartComponent implements OnInit {
         this.hscodeChartService.getChartData(code)
             .then(response => {
               this.barChartData = response;
-              console.log(response);
+              // console.log(response);
              });
       }
    });
