@@ -15,18 +15,18 @@ class MatviewsController < ApplicationController
     @year = params[:year]
 
     # Countries
-    @annual_country_imports = CountryAnnualImport.where(year: @year).group(:country).sum(:cif_usd).invert.sort.reverse.slice(0..9)
-    @annual_country_exports = CountryAnnualExport.where(year: @year).group(:country).sum(:fob_usd).invert.sort.reverse.slice(0..9)
+    @top_ten_countries_import = CountryAnnualImport.where(year: @year).group(:country).sum(:cif_usd).invert.sort.reverse.slice(0..9)
+    @top_ten_countries_export = CountryAnnualExport.where(year: @year).group(:country).sum(:fob_usd).invert.sort.reverse.slice(0..9)
 
     # Hscodes
-    @annual_hscode_imports = HscodeAnnualImport.where(year: @year).group(:code, :description).sum(:cif_usd).invert.sort.reverse.slice(0..9)
-    @annual_hscode_exports = HscodeAnnualExport.where(year: @year).group(:code, :description).sum(:fob_usd).invert.sort.reverse.slice(0..9)
+    @top_ten_hscodes_import = HscodeAnnualImport.where(year: @year).group(:code, :description).sum(:cif_usd).invert.sort.reverse.slice(0..9)
+    @top_ten_hscodes_export = HscodeAnnualExport.where(year: @year).group(:code, :description).sum(:fob_usd).invert.sort.reverse.slice(0..9)
 
     render json: {
-      annualCountryImports: @annual_country_imports,
-      annualCountryExports: @annual_country_exports,
-      annualHscodeImports: @annual_hscode_imports,
-      annualHscodeExports: @annual_hscode_exports
+      topTenCountriesImport: @top_ten_countries_import,
+      topTenCountriesExport: @top_ten_countries_export,
+      topTenHscodesImport: @top_ten_hscodes_import,
+      topTenHscodesExport: @top_ten_hscodes_export
     }
   end
 
