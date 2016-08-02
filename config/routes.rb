@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/charts/hscode/:code' => 'matviews#hscode', as: :hscode_matview
   get '/refresh_matviews' => 'matviews#refresh_matviews', as: :refresh_matviews
 
+  get '/country/:country' => 'matviews#country', as: :country
+  get '/year/:year' => 'matviews#year'
+  get '/hscode/:code' => 'matviews#hscode'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
