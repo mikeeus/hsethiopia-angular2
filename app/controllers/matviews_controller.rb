@@ -13,10 +13,14 @@ class MatviewsController < ApplicationController
 
   def year
     @year = params[:year]
-    @annual_country_imports = CountryAnnualImport.where(year: @year)
-    @annual_country_exports = CountryAnnualExport.where(year: @year)
-    @annual_hscode_imports = HscodeAnnualImport.where(year: @year)
-    @annual_hscode_exports = HscodeAnnualExport.where(year: @year)
+
+    # Countries
+    @annual_country_imports = CountryAnnualImport.where(year: @year).group(:country).sum(:cif_usd).invert.sort.reverse.slice(0..9)
+    @annual_country_exports = CountryAnnualExport.where(year: @year).group(:country).sum(:fob_usd).invert.sort.reverse.slice(0..9)
+
+    # Hscodes
+    @annual_hscode_imports = HscodeAnnualImport.where(year: @year).group(:code, :description).sum(:cif_usd).invert.sort.reverse.slice(0..9)
+    @annual_hscode_exports = HscodeAnnualExport.where(year: @year).group(:code, :description).sum(:fob_usd).invert.sort.reverse.slice(0..9)
 
     render json: {
       annualCountryImports: @annual_country_imports,
