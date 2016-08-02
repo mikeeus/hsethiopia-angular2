@@ -49,23 +49,11 @@ export class TopTenChartComponent implements OnInit {
   // }
 
   ngOnInit() {
-   //  this.sub = this.route.params.subscribe(params => {
-   //    if (params['code'] && params['code'] !== undefined) {
-   //      let code = +params['code'];
-   //      this.topTenChartsService.getHscodeChartData(code)
-   //          .then(response => {
-   //            this.barChartData = response;
-   //            // console.log(response);
-   //           });
-   //    } else if (params['country'] && params['country'] !== undefined) {
-   //      let country = params['country'];
-   //      this.topTenChartsService.getCountryChartData(country)
-   //          .then(response => {
-   //            this.barChartData = response;
-   //            // console.log(response);
-   //           });
-   //    }
-   // });
+    this.topTenChartsService.getChartData()
+        .then(response => {
+          this.barChartData = response.chartType;
+          // console.log(response);
+         });
   }
 
 }
