@@ -28,8 +28,8 @@ class MatviewsController < ApplicationController
 
   def hscode
     @code = params[:code]
-    @hscode_annual_imports = HscodeAnnualImport.where(code: @code).group(:code).sum(:cif_usd)
-    @hscode_annual_exports = HscodeAnnualExport.where(code: @code).group(:code).sum(:fob_usd)
+    @hscode_annual_imports = HscodeAnnualImport.where(code: @code).group(:year).sum(:cif_usd)
+    @hscode_annual_exports = HscodeAnnualExport.where(code: @code).group(:year).sum(:fob_usd)
   
     render json: {
       annualImports: @hscode_annual_imports,
