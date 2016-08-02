@@ -30,6 +30,10 @@ export class YearComponent implements OnInit {
   sub: any;
   year: number;
   countryImport: string = "country-import";
+  countryExport: string = "country-export";
+  HscodeImport: string = "hscode-import";
+  HscodeExport: string = "hscode-export";
+
   constructor(
     private route: ActivatedRoute,
     private yearService: YearService,
