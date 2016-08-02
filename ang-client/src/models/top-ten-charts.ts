@@ -1,6 +1,8 @@
+import {ChartData} from './chart-data';
+
 export class TopTenCharts {
-  topTenCountriesImport: any[];
-  topTenCountriesExport: any[];
-  topTenHscodesImport: any[];
-  topTenHscodesExport: any[];
+  topTenCountriesImport: ChartData;
+  topTenCountriesExport: ChartData;
+  topTenHscodesImport: ChartData;
+  topTenHscodesExport: ChartData;
 }
