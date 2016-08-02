@@ -16,9 +16,9 @@ export class HscodeService {
       .catch(this.handleError);
   }
 
-  getHscode(id: number) {
+  getHscode(code: number) {
     return this.getHscodes()
-      .then(hscodes => hscodes.find(hscode => hscode.id === id));
+      .then(hscodes => hscodes.find(hscode => hscode.code === code));
   }
 
   private handleError(error: any) {

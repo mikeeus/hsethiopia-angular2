@@ -21,9 +21,9 @@ export class HscodeDetailComponent implements OnInit {
 
   ngOnInit(){
     this.sub = this.route.params.subscribe(params => {
-      if (params['id'] !== undefined) {
-        let id = +params['id'];
-        this.hscodeService.getHscode(id)
+      if (params['code'] !== undefined) {
+        let code = +params['code'];
+        this.hscodeService.getHscode(code)
             .then(hscode => this.hscode = hscode);
       }
     });
