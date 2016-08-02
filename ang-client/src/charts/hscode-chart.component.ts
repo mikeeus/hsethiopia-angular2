@@ -5,6 +5,8 @@ import {ActivatedRoute} from '@angular/router';
 import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 
 import {HscodeChartService} from './hscode-chart.service';
+import {CountryChartService} from './country-chart.service';
+
 import {AnnualChart} from '../models/annual-chart';
 
 import {years} from './years';
@@ -19,12 +21,14 @@ import {years} from './years';
     FORM_DIRECTIVES
   ],
   providers: [
-    HscodeChartService
+    HscodeChartService,
+    CountryChartService
   ]
 })
 export class HscodeChartComponent implements OnInit {
   constructor(
     private hscodeChartService: HscodeChartService,
+    private countryChartService: CountryChartService,
     private route: ActivatedRoute
   ) {}
   sub: any;
@@ -80,9 +84,16 @@ export class HscodeChartComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      if (params['code'] !== undefined) {
+      if (params['code'] && params['code'] !== undefined) {
         let code = +params['code'];
         this.hscodeChartService.getChartData(code)
+            .then(response => {
+              this.barChartData = response;
+              // console.log(response);
+             });
+      } else if (params['country'] && params['country'] !== undefined) {
+        let country = params['country'];
+        this.countryChartService.getChartData(country)
             .then(response => {
               this.barChartData = response;
               // console.log(response);

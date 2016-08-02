@@ -6,12 +6,15 @@ import {CountryService} from './country.service';
 import {AnnualChart} from '../models/annual-chart';
 
 import {CountryChartComponent} from '../charts/country-chart.component';
+import {HscodeChartComponent} from '../charts/hscode-chart.component';
+
 
 @Component({
   selector: 'country',
   templateUrl: '/country/country.component.html',
   directives: [
-    CountryChartComponent
+    CountryChartComponent,
+    HscodeChartComponent
   ],
   providers: [
     // CountryService
