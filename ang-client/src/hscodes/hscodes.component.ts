@@ -4,13 +4,10 @@ import {Router} from '@angular/router';
 import {Hscode} from '../models/hscode';
 import {HscodeService} from './hscode.service';
 
-import {SummaryChartComponent} from './../charts/summary-chart.component';
-
 @Component({
   selector: 'hscodes',
   templateUrl: '/hscodes/hscodes.component.html',
   directives: [
-      SummaryChartComponent
   ],
   providers: [
     HscodeService
