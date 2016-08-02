@@ -33,7 +33,7 @@ export class HscodesComponent implements OnInit {
   }
 
   gotoDetail(hscode: Hscode) {
-    let link = ['hscode/', hscode.id];
+    let link = ['hscode/', hscode.code];
     this.router.navigate(link);
   }
 }
