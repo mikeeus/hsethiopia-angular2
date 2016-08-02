@@ -9,10 +9,14 @@ import {AnnualHscodeImports} from './annual-hscode-imports';
 import {AnnualHscodeExports} from './annual-hscode-exports';
 
 import {TopTenChartsService} from '../charts/top-ten-charts.service';
+import {TopTenChartComponent} from './charts/top-ten-chart.component';
 
 @Component({
   selector: 'year',
   templateUrl: '/year/year.component.html',
+  directives: [
+    TopTenChartComponent
+  ],
   providers:[
     YearService,
     TopTenChartsService
