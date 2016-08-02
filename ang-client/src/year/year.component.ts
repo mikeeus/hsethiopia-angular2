@@ -8,11 +8,14 @@ import {AnnualCountryExports} from './annual-country-exports';
 import {AnnualHscodeImports} from './annual-hscode-imports';
 import {AnnualHscodeExports} from './annual-hscode-exports';
 
+import {TopTenChartsService} from '../charts/top-ten-charts.service';
+
 @Component({
   selector: 'year',
   templateUrl: '/year/year.component.html',
   providers:[
-    YearService
+    YearService,
+    TopTenChartsService
   ]
 })
 export class YearComponent implements OnInit {
@@ -23,8 +26,9 @@ export class YearComponent implements OnInit {
   sub: any;
   year: number;
   constructor(
+    private route: ActivatedRoute,
     private yearService: YearService,
-    private route: ActivatedRoute
+    private topTenChartsService: TopTenChartsService
   ) {}
   
   ngOnInit() {
@@ -38,6 +42,8 @@ export class YearComponent implements OnInit {
               this.annualHscodeImports = yearData.annualHscodeImports;
               this.annualHscodeExports = yearData.annualHscodeExports;
             });
+        this.topTenChartsService.getTopTenChartsData(this.year)
+            .then(response => console.log(response));
       }
     });
   }
