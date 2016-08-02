@@ -11,7 +11,7 @@ import {years} from './years';
 
 @Component({
   selector: 'country-chart',
-  templateUrl: '/charts/country-chart.component.html',
+  templateUrl: '/charts/annual-chart.component.html',
   directives: [
     CHART_DIRECTIVES,
     NgClass,

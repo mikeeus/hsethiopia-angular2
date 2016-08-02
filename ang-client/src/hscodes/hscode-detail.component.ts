@@ -3,10 +3,14 @@ import {ActivatedRoute} from '@angular/router';
 
 import {Hscode} from '../models/hscode';
 import {HscodeService} from './hscode.service';
+import {HscodeChartComponent} from '../charts/hscode-chart.component';
 
 @Component({
   selector: 'hscode-detail',
   templateUrl: '/hscodes/hscode-detail.component.html',
+  directives: [
+    HscodeChartComponent
+  ],
   providers: [
     HscodeService
   ]

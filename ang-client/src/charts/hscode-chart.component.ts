@@ -11,7 +11,7 @@ import {years} from './years';
 
 @Component({
   selector: 'hscode-chart',
-  templateUrl: '/charts/hscode-chart.component.html',
+  templateUrl: '/charts/annual-chart.component.html',
   directives: [
     CHART_DIRECTIVES,
     NgClass,
