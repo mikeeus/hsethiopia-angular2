@@ -14,11 +14,7 @@ export class TopTenChartsService {
   getTopTenChartsData(year: number) {
     return this.http.get(this.topTenChartsUrl + year)
       .toPromise()
-      .then(response => response.json() as TopTenCharts
-      // {
-        // return this.populateChartData(response.json() as AnnualChart);
-      // }
-      )
+      .then(response => response.json() as TopTenCharts)
       .catch(this.handleError);
   }
 
