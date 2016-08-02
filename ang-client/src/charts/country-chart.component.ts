@@ -30,22 +30,21 @@ export class CountryChartComponent implements OnInit {
   sub: any;
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
-    responsive: true
-    // scales: {
-    //         yAxes: [{
-    //             ticks: {
-    //                 beginAtZero:true
-    //             }
-    //         }]
-    //     }
-    // start from zero
+    responsive: true,
+    scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
   };
   public barChartLabels: string[] = years;
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
   public barChartData: any[] = [
-    {data: [0], label: "Imports"},
-    {data: [0], label: "Exports"}
+    {data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], label: "Imports"},
+    {data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], label: "Exports"}
   ];
 
   public chartClicked(e: any):void {
@@ -60,25 +59,12 @@ export class CountryChartComponent implements OnInit {
       if (params['country'] !== undefined) {
         let country = params['country'];
         this.countryChartService.getChartData(country)
-            .then(countryChartData => this.populateChartData(countryChartData));
+            .then(response => {
+              this.barChartData = response;
+              // console.log(response);
+             });
       }
    });
   }
 
-  populateChartData(countryChart: AnnualChart) {
-    let labels = this.barChartLabels;
-    let _countryChartData: Array<any> = new Array(2);
-
-    _countryChartData[0] = {data: new Array(labels.length), label: "Imports"};
-    _countryChartData[1] = {data: new Array(labels.length), label: "Exports"};
-
-    for (let i = 0; i < labels.length; i++){
-      _countryChartData[0].data[i] = countryChart.annualImports[labels[i]];
-    }
-    for (let j = 0; j < labels.length; j++){
-      _countryChartData[1].data[j] = countryChart.annualExports[labels[j]];
-    }
-
-    this.barChartData = _countryChartData;
-  }
 }
