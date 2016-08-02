@@ -7,7 +7,6 @@ import {AnnualChart} from '../models/annual-chart';
 @Injectable()
 export class CountryChartService {
   constructor(private http: Http) {}
-// events
 
   getChartData(country: string) {
     return this.http.get('http://localhost:3000/charts/country/' + country)

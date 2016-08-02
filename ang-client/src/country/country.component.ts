@@ -14,8 +14,7 @@ import {CountryChartComponent} from '../charts/country-chart.component';
     CountryChartComponent
   ],
   providers: [
-    CountryService,
-    // CountryChartService
+    // CountryService
   ]
 })
 export class CountryComponent implements OnInit {
@@ -24,9 +23,8 @@ export class CountryComponent implements OnInit {
 
   sub: any;
   constructor(
-    private countryService: CountryService,
+    // private countryService: CountryService,
     private route: ActivatedRoute
-    // private countryChartService: CountryChartService
   ) {}
 
   ngOnInit() {
