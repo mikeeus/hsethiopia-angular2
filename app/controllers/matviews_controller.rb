@@ -32,8 +32,8 @@ class MatviewsController < ApplicationController
     @hscode_annual_exports = HscodeAnnualExport.where(code: @code).group(:code).sum(:fob_usd)
   
     render json: {
-      hscodeAnnualImports: @hscode_annual_imports,
-      hscodeAnnualExports: @hscode_annual_exports
+      annualImports: @hscode_annual_imports,
+      annualExports: @hscode_annual_exports
     }
   end
 
