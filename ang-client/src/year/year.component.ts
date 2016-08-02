@@ -29,6 +29,7 @@ export class YearComponent implements OnInit {
   annualHscodeExports: AnnualHscodeExports[];
   sub: any;
   year: number;
+  countryImport: string = "country-import";
   constructor(
     private route: ActivatedRoute,
     private yearService: YearService,
