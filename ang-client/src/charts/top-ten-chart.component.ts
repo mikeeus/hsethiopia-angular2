@@ -54,9 +54,9 @@ export class TopTenChartComponent implements OnInit {
         let year = +params['year'];
         this.topTenChartsService.getTopTenChartsData(year)
             .then(response => {
-              this.barChartData = response.chartType;
-              console.log(response);
-              console.log(response.chartType);
+              this.barChartData = response[this.chartType];
+              // console.log(response);
+              console.log(response[this.chartType]);
             });
       }
    });
