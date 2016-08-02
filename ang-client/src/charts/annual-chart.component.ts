@@ -35,8 +35,8 @@ export class AnnualChartComponent implements OnInit {
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
   public barChartData: any[] = [
-    {data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], label: "Imports"},
-    {data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], label: "Exports"}
+    {data: [0], label: "Imports"},
+    {data: [0], label: "Exports"}
   ];
 
   public chartClicked(e: any):void {
