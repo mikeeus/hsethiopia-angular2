@@ -12,7 +12,7 @@ import {AnnualChart} from '../models/annual-chart';
 import {years} from './years';
 
 @Component({
-  selector: 'hscode-chart',
+  selector: 'annual-chart',
   templateUrl: '/charts/annual-chart.component.html',
   directives: [
     CHART_DIRECTIVES,
@@ -25,7 +25,7 @@ import {years} from './years';
     CountryChartService
   ]
 })
-export class HscodeChartComponent implements OnInit {
+export class AnnualChartComponent implements OnInit {
   constructor(
     private hscodeChartService: HscodeChartService,
     private countryChartService: CountryChartService,
