@@ -24,14 +24,14 @@ import {chartOptions} from './chart-options';
     TopTenChartsService
   ]
 })
-export class AnnualChartComponent implements OnInit {
+export class TopTenChartComponent implements OnInit {
   constructor(
     private topTenChartsService: TopTenChartsService,
     private route: ActivatedRoute
   ) {}
   sub: any;
   @Input() chartType: string;
-  
+
   public barChartOptions: any = chartOptions;
   public barChartLabels: string[] = years;
   public barChartType: string = 'bar';
