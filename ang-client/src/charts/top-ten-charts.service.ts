@@ -14,7 +14,8 @@ export class TopTenChartsService {
   getTopTenChartsData(year: number) {
     return this.http.get(this.topTenChartsUrl + year)
       .toPromise()
-      .then(response => response.json() as TopTenCharts)
+      .then(response => 
+        this.populateChartData(response.json() as TopTenCharts))
       .catch(this.handleError);
   }
 
@@ -27,7 +28,7 @@ export class TopTenChartsService {
       topTenHscodesExport: {data: new Array(10), label: 'Hscodes by Export'},
     };
 
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < 10; i++) {
       _chartData.topTenCountriesImport.data[i] = chart.topTenCountriesImport[i][0];
       _chartData.topTenCountriesExport.data[i] = chart.topTenCountriesExport[i][0];
       _chartData.topTenHscodesImport.data[i] = chart.topTenHscodesImport[i][0];
