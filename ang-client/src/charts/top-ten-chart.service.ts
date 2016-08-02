@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-// import {AnnualChartData} from '../models/annual-chart-data';
+import {TopTenCharts} from '../models/top-ten-charts';
 // import {AnnualChart} from '../models/annual-chart';
 // import {years} from './years';
 
@@ -12,13 +12,14 @@ export class TopTenChartsService {
   topTenChartsUrl = 'http://localhost:3000/charts/year/';
 
   getTopTenChartsData(year: number) {
-    // return this.http.get(this.countryChartUrl + country)
-    //   .toPromise()
-    //   .then(response => {
-    //     return this.populateChartData(response.json() as AnnualChart);
-    //     }
-    //   )
-    //   .catch(this.handleError);
+    return this.http.get(this.topTenChartsUrl + year)
+      .toPromise()
+      .then(response => response.json() as TopTenCharts
+      // {
+        // return this.populateChartData(response.json() as AnnualChart);
+      // }
+      )
+      .catch(this.handleError);
   }
 
   // populateChartData(chart: AnnualChart) {
