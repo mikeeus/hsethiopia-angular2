@@ -51,8 +51,8 @@ export class YearComponent implements OnInit {
               this.annualHscodeImports = yearData.annualHscodeImports;
               this.annualHscodeExports = yearData.annualHscodeExports;
             });
-        this.topTenChartsService.getTopTenChartsData(this.year)
-            .then(response => console.log(response));
+        // this.topTenChartsService.getTopTenChartsData(this.year)
+        //     .then(response => console.log(response));
       }
     });
   }

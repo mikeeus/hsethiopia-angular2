@@ -33,20 +33,22 @@ export class TopTenChartComponent implements OnInit {
   @Input() chartType: string;
 
   public barChartOptions: any = chartOptions;
-  public barChartLabels: string[] = years;
+  public barChartLabels: string[] = [
+    'Belgium',
+    'China'
+  ];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
   public barChartData: any[] = [
-    {data: [0], label: "Imports"},
-    {data: [0], label: "Exports"}
+    {data: [1, 5], label: "Imports"}
   ];
 
-  // public chartClicked(e: any):void {
-  //   console.log(e);
-  // }
-  // public chartHovered(e: any): void {
-  //   console.log(e);
-  // }
+  public chartClicked(e: any):void {
+    console.log(e);
+  }
+  public chartHovered(e: any): void {
+    console.log(e);
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -54,12 +56,35 @@ export class TopTenChartComponent implements OnInit {
         let year = +params['year'];
         this.topTenChartsService.getTopTenChartsData(year)
             .then(response => {
-              this.barChartData = response[this.chartType];
-              console.log(response);
-              console.log(response[this.chartType]);
+              this.formatChartData(response[this.chartType], this.chartType);
             });
       }
    });
+  }
+
+  formatChartData(chartData: any[], type: string) {
+    let _chartData = {
+      data: new Array(chartData.length),
+      labels: new Array(chartData.length)
+    }
+
+    if (type == 'topTenCountriesImport' || type == 'topTenCountriesExport') {
+      for (let i = 0; i < chartData.length; i++) {
+        _chartData.data[i] = +chartData[i][0];
+        _chartData.labels[i] = chartData[i][1];
+      }
+      this.barChartData[0].data = _chartData.data;
+      this.barChartLabels = _chartData.labels;
+
+    } else if (type == 'topTenHscodesImport'  || type == 'topTenHscodesExport') {
+      for (let i = 0; i < chartData.length; i++) {
+        _chartData.data[i] = +chartData[i][0];
+        _chartData.labels[i] = chartData[i][1][0];
+      }
+
+      this.barChartData[0].data = _chartData.data;
+      this.barChartLabels = _chartData.labels;
+    }
   }
 
 }
