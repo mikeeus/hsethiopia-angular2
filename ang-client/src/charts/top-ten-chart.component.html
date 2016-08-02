@@ -1,0 +1,12 @@
+<!-- <h1>{{serviceResponse}}</h1> -->
+{{chartType}}
+
+<style> .chart {display: block; width: 100%;} </style>
+<base-chart class="chart"
+           [datasets]="barChartData"
+           [labels]="barChartLabels"
+           [options]="barChartOptions"
+           [legend]="barChartLegend"
+           [chartType]="barChartType"
+           (chartHover)="chartHovered($event)"
+           (chartClick)="chartClicked($event)"></base-chart>
