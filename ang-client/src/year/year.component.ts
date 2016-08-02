@@ -29,10 +29,10 @@ export class YearComponent implements OnInit {
   annualHscodeExports: AnnualHscodeExports[];
   sub: any;
   year: number;
-  countryImport: string = "country-import";
-  countryExport: string = "country-export";
-  hscodeImport: string = "hscode-import";
-  hscodeExport: string = "hscode-export";
+  countryImport: string = "topTenCountriesImport";
+  countryExport: string = "topTenCountriesExport";
+  hscodeImport: string = "topTenHscodesImport";
+  hscodeExport: string = "topTenHscodesExport";
 
   constructor(
     private route: ActivatedRoute,
