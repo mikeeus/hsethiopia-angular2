@@ -10,7 +10,10 @@ class HscodesController < ApplicationController
 
   # GET /hscodes/1
   def show
-    render json: @hscode
+    render json: {
+      hscode: @hscode,
+      relatedCodes: @hscode.related_codes
+    }
   end
 
   # # POST /hscodes
