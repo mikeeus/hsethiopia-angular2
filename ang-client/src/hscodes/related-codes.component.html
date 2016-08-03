@@ -1,0 +1,27 @@
+<h4 class="text-center">Related HS Codes</h4>
+<div class="related-codes">
+  <ul class="list-group">
+    <% if hscode == nil %>
+
+    <p class="text-center">No HS Code selected</p>
+
+    <% else %>
+      <li class="list-group-item selected-hscode">
+        <%= link_to hscode_path(hscode.code) do %>
+          <span class="code"><%= hscode.code %></span>
+          <span class="description"><%= hscode.description %></span>
+        <% end %>
+      </li>
+      <% hscode.related_codes.each do |rc| %>
+        <% unless rc == hscode %>
+          <li class="list-group-item">
+            <%= link_to hscode_path(rc.code) do %>
+              <span class="code"><%= rc.code %></span>
+              <span class="description"><%= rc.description %></span>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
