@@ -1,7 +1,7 @@
 .related-codes{
   height: auto;
-  max-height: 300px;
   overflow-y: auto;
+  max-height: 300px;
   ul{
     overflow: hidden;
     text-overflow: ellipsis;
@@ -13,8 +13,18 @@
     //   }
     // }
   }
-
 }
+// @media(max-width: 767px){
+//   .related-codes{
+//     max-height: 300px;
+//   }
+// }
+// @media(min-width: 768px){
+//   .related-codes{
+//     max-height: 450px;
+//   }
+// }
+
 .selected-hscode{
   background: #E3F2FD !important;
 }
