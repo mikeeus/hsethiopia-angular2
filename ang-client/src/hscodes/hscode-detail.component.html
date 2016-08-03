@@ -8,8 +8,15 @@
 
   <tax-rates [hscode]="hscode"></tax-rates>
 
-  <related-codes [relatedCodes]="relatedCodes"></related-codes>
+<div class="row">
+  <div class="col-sm-4">
+    <related-codes [relatedCodes]="relatedCodes"></related-codes>
+  </div>
 
+  <div class="col-sm-8">
+    <annual-chart></annual-chart>
+  </div>
 </div>
 
-<annual-chart></annual-chart>
+
+</div>
