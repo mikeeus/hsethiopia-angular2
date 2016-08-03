@@ -6,13 +6,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    li{
-      a{
-        font-weight: 600;
-      }
-      /*padding: 10px;*/
-      
-    }
+    // li{
+    //   &:hover{
+    //     background-color: #E1BEE7;
+    //     font-weight: 600;
+    //   }
+    // }
   }
 
 }
