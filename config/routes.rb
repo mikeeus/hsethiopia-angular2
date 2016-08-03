@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :exports, only: [:index, :show]
   resources :imports, only: [:index, :show]
-  resources :hscodes, only: [:index, :show]
+  resources :hscodes, only: [:index]
 
+  # 
+  get '/hscodes/:code' => 'hscodes#show', as: :hscode
   # Charts/ Matviews routes
   get '/charts/country/:country' => 'matviews#country', as: :country_chart
   get '/charts/year/:year' => 'matviews#year', as: :year
