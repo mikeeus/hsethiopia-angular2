@@ -29,10 +29,10 @@ export class YearComponent implements OnInit {
   annualHscodeExports: AnnualHscodeExports[];
   sub: any;
   year: number;
-  countryImport: string = "topTenCountriesImport";
-  countryExport: string = "topTenCountriesExport";
-  hscodeImport: string = "topTenHscodesImport";
-  hscodeExport: string = "topTenHscodesExport";
+  topTenCountriesImport: string = "topTenCountriesImport";
+  topTenCountriesExport: string = "topTenCountriesExport";
+  topTenHscodesImport: string = "topTenHscodesImport";
+  topTenHscodesExport: string = "topTenHscodesExport";
 
   constructor(
     private route: ActivatedRoute,
@@ -51,8 +51,6 @@ export class YearComponent implements OnInit {
               this.annualHscodeImports = yearData.annualHscodeImports;
               this.annualHscodeExports = yearData.annualHscodeExports;
             });
-        // this.topTenChartsService.getTopTenChartsData(this.year)
-        //     .then(response => console.log(response));
       }
     });
   }
