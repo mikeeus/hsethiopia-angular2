@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import {Hscode} from '../models/hscode';
 
@@ -10,10 +10,21 @@ import {Hscode} from '../models/hscode';
 })
 export class RelatedCodesComponent {
   @Input() relatedCodes: Hscode[];
-  constructor(private router: Router) {}
+  sub: any;
+  code: number;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   gotoDetail(hscode: Hscode) {
     let link = ['hscode/', hscode.code];
     this.router.navigate(link);
+  }
+
+  ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.code = +params['code'];
+    });
   }
 }
