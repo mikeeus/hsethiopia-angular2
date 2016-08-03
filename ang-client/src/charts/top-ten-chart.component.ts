@@ -67,24 +67,24 @@ export class TopTenChartComponent implements OnInit {
       data: new Array(chartData.length),
       labels: new Array(chartData.length)
     }
+    for (let i = 0; i < chartData.length; i++) {
 
-    if (type == 'topTenCountriesImport' || type == 'topTenCountriesExport') {
-      for (let i = 0; i < chartData.length; i++) {
-        _chartData.data[i] = +chartData[i][0];
+      _chartData.data[i] = +chartData[i][0];
+
+      if (type == 'topTenCountriesImport' || type == 'topTenCountriesExport') {
+
         _chartData.labels[i] = chartData[i][1];
-      }
-      this.barChartData[0].data = _chartData.data;
-      this.barChartLabels = _chartData.labels;
 
-    } else if (type == 'topTenHscodesImport'  || type == 'topTenHscodesExport') {
-      for (let i = 0; i < chartData.length; i++) {
-        _chartData.data[i] = +chartData[i][0];
+      } else if (type == 'topTenHscodesImport'  || type == 'topTenHscodesExport') {
+
         _chartData.labels[i] = chartData[i][1][0];
+        
       }
 
-      this.barChartData[0].data = _chartData.data;
       this.barChartLabels = _chartData.labels;
+      this.barChartData[0].data = _chartData.data;
     }
+
   }
 
 }
