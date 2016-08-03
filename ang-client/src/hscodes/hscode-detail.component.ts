@@ -3,17 +3,20 @@ import {ActivatedRoute} from '@angular/router';
 
 import {Hscode} from '../models/hscode';
 import {HscodeService} from './hscode.service';
+
 import {AnnualChartComponent} from '../charts/annual-chart.component';
 import {TaxRatesComponent} from './tax-rates.component';
 import {RelatedCodesComponent} from './related-codes.component';
+import {HscodeTablesComponent} from '../tables/hscode-tables.component';
 
 @Component({
   selector: 'hscode-detail',
   templateUrl: '/hscodes/hscode-detail.component.html',
   directives: [
-    AnnualChartComponent,
     TaxRatesComponent,
-    RelatedCodesComponent
+    RelatedCodesComponent,
+    AnnualChartComponent,
+    HscodeTablesComponent
   ],
   providers: [
     HscodeService
