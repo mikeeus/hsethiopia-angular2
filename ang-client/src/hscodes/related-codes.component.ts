@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {Hscode} from '../models/hscode';
 
@@ -9,4 +10,10 @@ import {Hscode} from '../models/hscode';
 })
 export class RelatedCodesComponent {
   @Input() relatedCodes: Hscode[];
+  constructor(private router: Router) {}
+
+  gotoDetail(hscode: Hscode) {
+    let link = ['hscode/', hscode.code];
+    this.router.navigate(link);
+  }
 }
