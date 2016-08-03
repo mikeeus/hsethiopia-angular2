@@ -1,3 +1,5 @@
+// add formatting for labels similar to ticks
+
 export const chartOptions = {
   scaleShowVerticalLines: false,
   responsive: true,
