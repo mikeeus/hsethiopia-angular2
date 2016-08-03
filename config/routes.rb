@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   # 
   get '/hscodes/:code' => 'hscodes#show', as: :hscode
+
+  # Tables
+  get '/hscodes/:code/tables' => 'hscodes#tables', as: :hscode_tables
   # Charts/ Matviews routes
   get '/charts/country/:country' => 'matviews#country', as: :country_chart
   get '/charts/year/:year' => 'matviews#year', as: :year

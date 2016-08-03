@@ -16,6 +16,13 @@ class HscodesController < ApplicationController
     }
   end
 
+  def tables
+    render json: {
+      imports: @hscode.imports,
+      exports: @hscode.exports
+    }
+  end
+
   # # POST /hscodes
   # def create
   #   @hscode = Hscode.new(hscode_params)
