@@ -3,7 +3,7 @@ class HscodesController < ApplicationController
 
   # GET /hscodes
   def index
-    @hscodes = Hscode.all
+    @hscodes = Hscode.all.slice(1..-1)
 
     render json: @hscodes
   end
