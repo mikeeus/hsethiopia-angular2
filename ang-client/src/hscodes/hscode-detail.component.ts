@@ -19,6 +19,7 @@ import {TaxRatesComponent} from './tax-rates.component';
 })
 export class HscodeDetailComponent implements OnInit {
   hscode: Hscode;
+  relatedCodes: Hscode[];
   sub: any;  
   constructor(
     private hscodeService: HscodeService,
@@ -30,7 +31,10 @@ export class HscodeDetailComponent implements OnInit {
       if (params['code'] !== undefined) {
         let code = +params['code'];
         this.hscodeService.getHscode(code)
-            .then(hscode => this.hscode = hscode);
+            .then(response => {
+              this.hscode = response.hscode;
+              this.relatedCodes = response.relatedCodes;
+            });
       }
     });
   }

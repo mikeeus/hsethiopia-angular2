@@ -20,7 +20,7 @@ export class HscodeService {
   getHscode(code: number) {
     return this.http.get(this.hscodesUrl + '/' + code )
       .toPromise()
-      .then(response => response.json() as Hscode)
+      .then(response => response.json())
       .catch(this.handleError);
   }
 
