@@ -1,11 +1,15 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Hscode} from '../models/hscode';
 
 @Component({
   selector: 'tax-rates',
-  templateUrl: './tax-rates.component.html',
-  styleUrls: ['./tax-rates.scss']
+  templateUrl: './hscodes/tax-rates.component.html',
+  styleUrls: ['./hscodes/tax-rates.scss']
 })
-export class TaxRatesComponent {
+export class TaxRatesComponent implements OnInit {
   @Input() hscode: Hscode;
+
+  ngOnInit() {
+
+  }
 }
