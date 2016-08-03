@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Hscode} from '../models/hscode';
 
 @Component({
   selector: 'tax-rates',
@@ -6,5 +7,5 @@ import {Component} from '@angular/core';
   styleUrls: ['./tax-rates.scss']
 })
 export class TaxRatesComponent {
-
+  @Input() hscode: Hscode;
 }
