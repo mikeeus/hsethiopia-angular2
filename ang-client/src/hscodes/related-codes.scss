@@ -1,28 +1,30 @@
 .related-codes{
   height: auto;
-  max-height: 450px;
+  max-height: 300px;
   overflow-y: auto;
   ul{
     overflow: hidden;
     text-overflow: ellipsis;
-    /*white-space: nowrap;*/
+    white-space: nowrap;
     li{
       a{
         font-weight: 600;
       }
       /*padding: 10px;*/
-      .code{
-        display: table-cell;
-        vertical-align: middle;
-        padding-right: 10px
-      }
-      .description{
-        display: table-cell;
-        vertical-align: middle;
-      }
+      
     }
   }
+
 }
 .selected-hscode{
   background: #E3F2FD !important;
+}
+.related-code{
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 10px
+}
+.related-description{
+  display: table-cell;
+  vertical-align: middle;
 }
