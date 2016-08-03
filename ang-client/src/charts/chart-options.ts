@@ -7,7 +7,7 @@ export const chartOptions = {
         beginAtZero:true,
         userCallback: function (value){
           if (value < 1){
-            return "$" + value.toFixed(1);
+            return "";
           } else if (value < 10000){
             return "$" + value;
           } else if (value < 1000000){
