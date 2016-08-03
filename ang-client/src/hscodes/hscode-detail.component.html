@@ -9,18 +9,9 @@
   <div>
     <label>description: </label>{{hscode.description}}
   </div>
-  <div>
-    <label>unit: </label>{{hscode.unit}}
-  </div>
-  <div>
-    <label>duty: </label>{{hscode.duty}}
-  </div>
-  <div>
-    <label>vat: </label>{{hscode.vat}}
-  </div>
-  <div>
-    <label>sur: </label>{{hscode.sur}}
-  </div>
+
+  <tax-rates [hscode]="hscode"></tax-rates>
+
 </div>
 
 <annual-chart></annual-chart>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {Hscode} from '../models/hscode';
@@ -16,7 +16,7 @@ import {AnnualChartComponent} from '../charts/annual-chart.component';
   ]
 })
 export class HscodeDetailComponent implements OnInit {
-  @Input() hscode: Hscode;
+  hscode: Hscode;
   sub: any;  
   constructor(
     private hscodeService: HscodeService,
