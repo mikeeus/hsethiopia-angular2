@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 
 import {Hscode} from '../models/hscode';
 
@@ -17,8 +18,10 @@ export class HscodeService {
   }
 
   getHscode(code: number) {
-    return this.getHscodes()
-      .then(hscodes => hscodes.find(hscode => hscode.code === code));
+    return this.http.get(this.hscodesUrl + '/' + code )
+      .toPromise()
+      .then(response => response.json() as Hscode)
+      .catch(this.handleError);
   }
 
   private handleError(error: any) {
