@@ -34,13 +34,12 @@ export class TopTenChartComponent implements OnInit {
 
   public barChartOptions: any = chartOptions;
   public barChartLabels: string[] = [
-    'Belgium',
-    'China'
+    '',
   ];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
   public barChartData: any[] = [
-    {data: [1, 5], label: "Imports"}
+    {data: [0], label: "No Data Available"}
   ];
 
   public chartClicked(e: any):void {
@@ -71,14 +70,26 @@ export class TopTenChartComponent implements OnInit {
 
       _chartData.data[i] = +chartData[i][0];
 
-      if (type == 'topTenCountriesImport' || type == 'topTenCountriesExport') {
+      if (type === 'topTenCountriesImport' ) { 
 
         _chartData.labels[i] = chartData[i][1];
+        this.barChartData[0].label = 'Import';
 
-      } else if (type == 'topTenHscodesImport'  || type == 'topTenHscodesExport') {
+      } else if (type === 'topTenCountriesExport') {
+
+        _chartData.labels[i] = chartData[i][1];
+        this.barChartData[0].label = 'Export';
+
+      } else if (type === 'topTenHscodesImport') {
 
         _chartData.labels[i] = chartData[i][1][0];
-        
+        this.barChartData[0].label = 'Import';
+
+      } else if (type === 'topTenHscodesExport') {
+
+        _chartData.labels[i] = chartData[i][1][0];
+        this.barChartData[0].label = 'Export';
+
       }
 
       this.barChartLabels = _chartData.labels;
