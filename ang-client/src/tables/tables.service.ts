@@ -8,9 +8,11 @@ export class TablesService {
   hscodesUrl: 'http://localhost:3000/hscodes/';
 
   getHscodesTablesData(code: number) {
-    return this.http.get(this.hscodesUrl + code + '/tables')
+    return this.http.get('http://localhost:3000/hscodes/' + code + '/tables')
       .toPromise()
-      .then(response => response.json())
+      .then(response => {
+        return response.json()
+       })
       .catch(this.handleError);
   }
 

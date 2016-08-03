@@ -1,6 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Http} from '@angular/http';
 
 import {Hscode} from '../models/hscode';
 import {Import} from '../models/import';
@@ -10,15 +8,16 @@ import {TablesService} from './tables.service';
 
 @Component({
   selector: 'hscode-tables',
-  templateUrl: '/tables/hscode-tables.component.html'
+  templateUrl: '/tables/hscode-tables.component.html',
+  providers:[
+    TablesService
+  ]
 })
 export class HscodeTablesComponent implements OnInit {
   @Input() hscode: Hscode;
   importsTable: Import[];
   exportsTable: Export[];
   constructor(
-    private http: Http,
-    private route: ActivatedRoute,
     private tablesService: TablesService
   ) {}
 
