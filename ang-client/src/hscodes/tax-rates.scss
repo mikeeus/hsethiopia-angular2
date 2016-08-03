@@ -18,13 +18,15 @@
 .rate-box-right{
   height: 50px; 
   width: 30%;
+  font-weight: bold;
+  color: white;
   padding-top: 15px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  .tax-value{
-    color: #fff;
-    font-weight: 600;
-  }
+  // .tax-value{
+  //   color: #fff;
+  //   font-weight: 600;
+  // }
 }
 
 
