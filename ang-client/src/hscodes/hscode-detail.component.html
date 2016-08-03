@@ -1,13 +1,9 @@
-<h1>Hscode Details</h1>
 <div *ngIf="hscode">
   <div>
-    <label>Id: </label>{{hscode.id}}
+    <h1>Code: {{hscode.code}}</h1>
   </div>
   <div>
-    <label>code: </label>{{hscode.code}}
-  </div>
-  <div>
-    <label>description: </label>{{hscode.description}}
+    <h3>Description: {{hscode.description}}</h3>
   </div>
 
   <tax-rates [hscode]="hscode"></tax-rates>
