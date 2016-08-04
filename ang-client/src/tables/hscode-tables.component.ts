@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 import {Hscode} from '../models/hscode';
 import {Import} from '../models/import';
@@ -14,23 +15,31 @@ import {ImportTableComponent} from './import-table.component';
     ImportTableComponent
   ],
   providers:[
-    TablesService
+    TablesService,
+    ActivatedRoute
   ]
 })
 export class HscodeTablesComponent implements OnInit {
   // @Input() hscode: Hscode;
-  // importsTable: Import[];
-  // exportsTable: Export[];
+  code: number = 9011100;
+  typeImport: string = 'import';
+  importsTable: any[];
+  exportsTable: any[];
+  sub: any;
 
   constructor(
-    private tablesService: TablesService
+    private tablesService: TablesService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    // this.tablesService.getHscodesTablesData(this.hscode.code)
-    //     .then(response => {
-    //       this.importsTable = response.imports;
-    //       this.exportsTable = response.exports;
-    //     })
+    this.sub = this.route.params.subscribe(params => {
+      this.code = +params['code'];
+      this.tablesService.getHscodesTablesData(this.code)
+            .then(response => {
+              this.importsTable = response.imports;
+              this.exportsTable = response.exports;
+            });
+    });
   }
 }

@@ -2,42 +2,59 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass, NgIf} from '@angular/common';
 import {PAGINATION_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {NG_TABLE_DIRECTIVES} from 'ng2-table/ng2-table';
+
 import {Import} from '../models/import';
+
+import {TablesService} from './tables.service';
+
 
 
 @Component({
   selector: 'import-table',
-  templateUrl: '/tables/import-table.component.html',
-  directives: [NG_TABLE_DIRECTIVES, PAGINATION_DIRECTIVES, NgClass, NgIf, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  templateUrl: '/tables/hscode-table.component.html',
+  directives: [NG_TABLE_DIRECTIVES, PAGINATION_DIRECTIVES, NgClass, NgIf, CORE_DIRECTIVES, FORM_DIRECTIVES],
+  providers: [
+    TablesService
+  ]
 })
-export class ImportTableComponent implements OnInit {
-  @Input() TableData: Import[];
-  public rows:Array<any> = [];
-  public columns:Array<any> = [
+export class HscodeTableComponent implements OnInit {
+  @Input() code: number;
+  @Input() type: string;
+
+  public rows: Array<any>;
+
+  public columns: Array<any> = [
     {title: 'Code', name: 'code', sort: 'asc'},
     {title: 'Description', name: 'description', sort: false}
   ];
-  public page:number = 1;
-  public itemsPerPage:number = 10;
-  public maxSize:number = 5;
-  public numPages:number = 1;
-  public length:number = 0;
 
-  public config:any = {
+  // Pagination
+  public page: number = 1;
+  public itemsPerPage: number = 10;
+  public maxSize: number = 5;
+  public numPages: number = 1;
+  public length: number = 0;
+
+  constructor(private tablesService: TablesService) {
+    // this.length = this.data.length;
+  }
+
+  public config: any = {
     // paging: false,
     // sorting: {columns: this.columns},
     // filtering: {filterString: '', columnName: 'code'}
   };
 
-  private data:Array<any> = this.TableData;
 
-  public constructor() {
-    // this.length = this.data.length;
-  }
 
-  public ngOnInit():void {
+  ngOnInit() {
+    this.tablesService.getHscodesTablesData(this.code)
+            .then(response => {
+              this.rows = response.imports;
+            });
     // this.onChangeTable(this.config);
   }
+
 
   // public changePage(page:any, data:Array<any> = this.data):Array<any> {
   //   console.log(page);

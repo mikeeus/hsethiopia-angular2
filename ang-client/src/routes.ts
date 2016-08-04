@@ -10,6 +10,7 @@ import {HscodeDetailComponent} from './hscodes/hscode-detail.component';
 import {YearComponent} from './year/year.component';
 import {CountryComponent} from './country/country.component';
 import {ImportTableComponent} from './tables/import-table.component';
+import {HscodeTablesComponent} from './tables/hscode-tables.component';
 
 import {Header} from './app/header';
 import {Footer} from './app/footer';
@@ -31,7 +32,7 @@ export class Root {
 export const routes: RouterConfig = [
   {
     path: 'tables',
-    component: ImportTableComponent
+    component: HscodeTablesComponent
   },
   {
     path: 'hscode/:code',
