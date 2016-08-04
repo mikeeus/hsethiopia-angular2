@@ -10,9 +10,11 @@ import {ImportTableComponent} from './import-table.component';
 @Component({
   selector: 'hscode-tables',
   templateUrl: '/tables/hscode-tables.component.html',
-  providers:[
-    TablesService,
+  directives: [
     ImportTableComponent
+  ],
+  providers:[
+    TablesService
   ]
 })
 export class HscodeTablesComponent implements OnInit {

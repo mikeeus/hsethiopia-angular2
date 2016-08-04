@@ -7,11 +7,18 @@ import {Import} from '../models/import';
 
 @Component({
   selector: 'import-table',
-  template: './import-table.component.html',
+  template: './tables/import-table.component.html',
   directives: [NG_TABLE_DIRECTIVES, PAGINATION_DIRECTIVES, NgClass, NgIf, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class ImportTableComponent implements OnInit {
-  @Input() tableData: Import[];
+  tableData = [
+    {
+      code: '10011000',
+      description: 'something',
+      cif_usd: 500,
+      cif_etb: 10000
+    }
+  ];
   public rows:Array<any> = [];
   public columns:Array<any> = [
     {title: 'Code', name: 'code'},
