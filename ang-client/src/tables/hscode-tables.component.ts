@@ -18,19 +18,19 @@ import {ImportTableComponent} from './import-table.component';
   ]
 })
 export class HscodeTablesComponent implements OnInit {
-  @Input() hscode: Hscode;
-  importsTable: Import[];
-  exportsTable: Export[];
+  // @Input() hscode: Hscode;
+  // importsTable: Import[];
+  // exportsTable: Export[];
 
   constructor(
     private tablesService: TablesService
   ) {}
 
   ngOnInit() {
-    this.tablesService.getHscodesTablesData(this.hscode.code)
-        .then(response => {
-          this.importsTable = response.imports;
-          this.exportsTable = response.exports;
-        })
+    // this.tablesService.getHscodesTablesData(this.hscode.code)
+    //     .then(response => {
+    //       this.importsTable = response.imports;
+    //       this.exportsTable = response.exports;
+    //     })
   }
 }

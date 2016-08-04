@@ -2,12 +2,15 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {Hscode} from '../models/hscode';
+import {Import} from '../models/import';
+
 import {HscodeService} from './hscode.service';
+import {TablesService} from '../tables/tables.service';
 
 import {AnnualChartComponent} from '../charts/annual-chart.component';
 import {TaxRatesComponent} from './tax-rates.component';
 import {RelatedCodesComponent} from './related-codes.component';
-import {HscodeTablesComponent} from '../tables/hscode-tables.component';
+import {ImportTableComponent} from '../tables/import-table.component';
 
 @Component({
   selector: 'hscode-detail',
@@ -16,18 +19,21 @@ import {HscodeTablesComponent} from '../tables/hscode-tables.component';
     TaxRatesComponent,
     RelatedCodesComponent,
     AnnualChartComponent,
-    HscodeTablesComponent
+    ImportTableComponent
   ],
   providers: [
-    HscodeService
+    HscodeService,
+    TablesService
   ]
 })
 export class HscodeDetailComponent implements OnInit {
   hscode: Hscode;
   relatedCodes: Hscode[];
+  importsTable: Import[];
   sub: any;  
   constructor(
     private hscodeService: HscodeService,
+    private tablesService: TablesService,
     private route: ActivatedRoute
   ){}
 
@@ -39,6 +45,10 @@ export class HscodeDetailComponent implements OnInit {
             .then(response => {
               this.hscode = response.hscode;
               this.relatedCodes = response.relatedCodes;
+            });
+        this.tablesService.getHscodesTablesData(code)
+            .then(response => {
+              this.importsTable = response.imports;
             });
       }
     });
