@@ -5,18 +5,21 @@ import {Import} from '../models/import';
 import {Export} from '../models/export';
 
 import {TablesService} from './tables.service';
+import {ImportTableComponent} from './import-table.component';
 
 @Component({
   selector: 'hscode-tables',
   templateUrl: '/tables/hscode-tables.component.html',
   providers:[
-    TablesService
+    TablesService,
+    ImportTableComponent
   ]
 })
 export class HscodeTablesComponent implements OnInit {
   @Input() hscode: Hscode;
   importsTable: Import[];
   exportsTable: Export[];
+
   constructor(
     private tablesService: TablesService
   ) {}
