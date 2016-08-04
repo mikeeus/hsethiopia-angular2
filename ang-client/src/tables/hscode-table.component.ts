@@ -10,7 +10,7 @@ import {TablesService} from './tables.service';
 
 
 @Component({
-  selector: 'import-table',
+  selector: 'hscode-table',
   templateUrl: '/tables/hscode-table.component.html',
   directives: [NG_TABLE_DIRECTIVES, PAGINATION_DIRECTIVES, NgClass, NgIf, CORE_DIRECTIVES, FORM_DIRECTIVES],
   providers: [
@@ -45,13 +45,15 @@ export class HscodeTableComponent implements OnInit {
     // filtering: {filterString: '', columnName: 'code'}
   };
 
-
-
   ngOnInit() {
     this.tablesService.getHscodesTablesData(this.code)
-            .then(response => {
-              this.rows = response.imports;
-            });
+        .then(response => {
+          if (this.type === "import") {
+            this.rows = response.imports;
+          } else if (this.type === "export") {
+            this.rows = response.exports;
+          }
+        });
     // this.onChangeTable(this.config);
   }
 

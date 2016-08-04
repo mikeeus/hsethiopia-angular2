@@ -17,7 +17,16 @@
       <annual-chart></annual-chart>
     </div>
   </div>
-  <import-table [TableData]="importsTable"></import-table>
-  <!-- <hscode-tables [hscode]="hscode"></hscode-tables> -->
+
+
+  <h1>Imports Table</h1>
+  <hscode-table [code]="code"
+                [type]="typeImport">
+  </hscode-table>
+
+  <h1>Exports Table</h1>
+  <hscode-table [code]="code"
+                [type]="typeExport">
+  </hscode-table>
 
 </div>
