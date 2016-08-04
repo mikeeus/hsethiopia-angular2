@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass, NgIf} from '@angular/common';
 import {PAGINATION_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
-import {NG_TABLE_DIRECTIVES} from 'ng2-table/ng2-table';
 
 import {Import} from '../models/import';
 
@@ -12,7 +10,7 @@ import {TablesService} from './tables.service';
 @Component({
   selector: 'hscode-table',
   templateUrl: '/tables/hscode-table.component.html',
-  directives: [NG_TABLE_DIRECTIVES, PAGINATION_DIRECTIVES, NgClass, NgIf, CORE_DIRECTIVES, FORM_DIRECTIVES],
+  directives: [],
   providers: [
     TablesService
   ]
