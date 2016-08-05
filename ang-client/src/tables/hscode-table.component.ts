@@ -21,10 +21,7 @@ export class HscodeTableComponent implements OnInit {
 
   public rows: Array<any>;
 
-  public columns: Array<any> = [
-    {title: 'Code', name: 'code', sort: 'asc'},
-    {title: 'Description', name: 'description', sort: false}
-  ];
+  public columns: Array<any>;
 
   // Pagination
   public page: number = 1;
@@ -38,8 +35,8 @@ export class HscodeTableComponent implements OnInit {
   }
 
   public config: any = {
+    sorting: {columns: this.columns}
     // paging: false,
-    // sorting: {columns: this.columns},
     // filtering: {filterString: '', columnName: 'code'}
   };
 
@@ -52,46 +49,70 @@ export class HscodeTableComponent implements OnInit {
             this.rows = response.exports;
           }
         });
+
+    // Populate columns based on table type
+    if (this.type === 'import') {
+      this.columns = [
+        {title: 'Year', name: 'year', sort: 'desc'},
+        {title: 'Country of Origin', name: 'country_origin', sort: ''},
+        {title: 'Country of Consignment', name: 'country_consignment', sort: ''},
+        {title: 'CIF ($)', name: 'cif_usd', sort: ''},
+        {title: 'CIF (ETB)', name: 'cif_etb', sort: ''}
+      ]
+    } else if (this.type === 'export') {
+      this.columns = [
+        {title: 'Year', name: 'year', sort: ''},
+        {title: 'Destination', name: 'destination', sort: ''},
+        {title: 'FOB ($)', name: 'fob_etb', sort: ''},
+        {title: 'FOB (ETB)', name: 'fob_etb', sort: ''}
+      ]
+    }
+    this.initialSort(this.rows, this.config);
     // this.onChangeTable(this.config);
   }
 
+  // Grouping function
+  // groupByYear() {
+
+  // }
+
+  initialSort(data: any, config: any) {
+    if (!this.config.sorting) {
+      return data;
+    }
+
+    let columns = this.config.sorting.columns || [];
+    let columnName:string = void 0;
+    let sort:string = void 0;
+
+    for (let i = 0; i < columns.length; i++) {
+      if (columns[i].sort !== '') {
+        columnName = columns[i].name;
+        sort = columns[i].sort;
+      }
+    }
+
+    if (!columnName) {
+      return data;
+    }
+
+    return data.sort((previous: any, current: any) => {
+      if (previous[columnName] > current[columnName]) {
+        return sort === 'desc' ? -1 : 1;
+      } else if (previous[columnName] < current[columnName]) {
+        return sort === 'asc' ? -1 : 1;
+      }
+      return 0;
+    });
+
+  }
+  
 
   // public changePage(page:any, data:Array<any> = this.data):Array<any> {
   //   console.log(page);
   //   let start = (page.page - 1) * page.itemsPerPage;
   //   let end = page.itemsPerPage > -1 ? (start + page.itemsPerPage) : data.length;
   //   return data.slice(start, end);
-  // }
-
-  // public changeSort(data:any, config:any):any {
-  //   if (!config.sorting) {
-  //     return data;
-  //   }
-
-  //   let columns = this.config.sorting.columns || [];
-  //   let columnName:string = void 0;
-  //   let sort:string = void 0;
-
-  //   for (let i = 0; i < columns.length; i++) {
-  //     if (columns[i].sort !== '') {
-  //       columnName = columns[i].name;
-  //       sort = columns[i].sort;
-  //     }
-  //   }
-
-  //   if (!columnName) {
-  //     return data;
-  //   }
-
-  //   // simple sorting
-  //   return data.sort((previous:any, current:any) => {
-  //     if (previous[columnName] > current[columnName]) {
-  //       return sort === 'desc' ? -1 : 1;
-  //     } else if (previous[columnName] < current[columnName]) {
-  //       return sort === 'asc' ? -1 : 1;
-  //     }
-  //     return 0;
-  //   });
   // }
 
   // public changeFilter(data:any, config:any):any {
