@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :imports, only: [:index, :show]
   resources :hscodes, only: [:index]
 
-  # 
+  # Hscodes
   get '/hscodes/:code' => 'hscodes#show', as: :hscode
+  get '/hscodes/search/:search' => 'hscodes#search', as: :hscodes_search
 
   # Tables
   get '/hscodes/:code/tables' => 'hscodes#tables', as: :hscode_tables
