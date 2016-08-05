@@ -15,7 +15,7 @@
     </div><!-- /.col-lg-6 -->
   </div>
 </div>
-
+<!-- 
 <div class="container-fluid">
   <table class="table">
     <thead>
@@ -23,11 +23,11 @@
       <th>Description</th>
     </thead>
     <tbody>
-      <tr *ngFor="let hscode of hscodes"
+      <tr *ngFor="let hscode of hscodes | async"
           (click)="gotoDetail(hscode)">
         <td>{{hscode.code}}</td>
         <td>{{hscode.description}}</td>
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
