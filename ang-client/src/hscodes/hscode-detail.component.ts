@@ -8,7 +8,6 @@ import {HscodeService} from './hscode.service';
 import {AnnualChartComponent} from '../charts/annual-chart.component';
 import {TaxRatesComponent} from './tax-rates.component';
 import {RelatedCodesComponent} from './related-codes.component';
-import {HscodeTableComponent} from '../tables/hscode-table.component';
 
 @Component({
   selector: 'hscode-detail',
@@ -16,8 +15,7 @@ import {HscodeTableComponent} from '../tables/hscode-table.component';
   directives: [
     TaxRatesComponent,
     RelatedCodesComponent,
-    AnnualChartComponent,
-    HscodeTableComponent
+    AnnualChartComponent
   ],
   providers: [
     HscodeService
