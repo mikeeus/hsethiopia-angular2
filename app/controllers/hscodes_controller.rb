@@ -23,6 +23,12 @@ class HscodesController < ApplicationController
     }
   end
 
+  def search
+    search_term = params[:search]
+    # @search_result = HscodesSearch.new(search_term)
+    # render json: @search_result
+  end
+
   # # POST /hscodes
   # def create
   #   @hscode = Hscode.new(hscode_params)
