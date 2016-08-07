@@ -6,7 +6,7 @@ export class HscodeSearchService {
   constructor(private http: Http) {}
   search(term: string) {
     return this.http
-               .get(`app/hscodes/search/${term}`)
+               .get(`http://localhost:3000/hscodes/search/${term}`)
                .map((r: Response) => r.json().data as Hscode[]);
   }
 }

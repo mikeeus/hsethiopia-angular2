@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 
 import {Hscode} from '../models/hscode';
 import {HscodeSearchComponent} from '../search/hscode-search.component';
-// import {HscodeService} from './hscode.service';
+import {HscodeSearchService} from '../search/hscode-search.service';
 
 @Component({
   selector: 'hscodes',
@@ -12,17 +12,24 @@ import {HscodeSearchComponent} from '../search/hscode-search.component';
     HscodeSearchComponent
   ],
   providers: [
+    HscodeSearchService
   ]
 })
 export class HscodesComponent implements OnInit {
-  hscodes: Hscode[];
+  hscodes: Hscode[] = [];
   error: any;
   constructor(
-    private router: Router
+    private router: Router,
+    private hscodeSearch: HscodeSearchService
   ) {}
 
   ngOnInit(){
     
+  }
+
+  search(term: string) {
+    this.hscodeSearch
+        .search(term);
   }
 
   // gotoDetail(hscode: Hscode) {

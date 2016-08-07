@@ -5,7 +5,7 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'chart.js';
-
+import "./rxjs-extension";
 import {bootstrap} from '@angular/platform-browser-dynamic';
 // import './rxjs-operators';
 import './index.scss';
