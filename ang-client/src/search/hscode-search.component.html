@@ -1,8 +1,10 @@
 <div class="homepage-searchbar" id="search-component">
     <div>
-      <input #searchBox id="search-box" (keyup)="search(searchBox.value)" type="text" class="form-control" placeholder="Search HS Codes" />
+      <input #searchBox id="search-box" (keyup)="search(searchBox.value)" 
+        
+        type="text" class="form-control" placeholder="Search HS Codes" />
     </div>
-    <ul id="search-results">
+    <ul #searchResults id="search-results">
       <li *ngFor="let hscode of hscodes | async"
           (click)="gotoDetail(hscode)"
           class="search-result" >
@@ -10,3 +12,5 @@
       </li>
     </ul>
 </div>
+
+<!-- (focus)="search(searchBox.value)" -->
