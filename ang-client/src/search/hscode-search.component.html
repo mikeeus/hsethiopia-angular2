@@ -5,11 +5,10 @@
       </div>
       <ul id="search-results">
         <li *ngFor="let hscode of hscodes | async"
+            (click)="gotoDetail(hscode)"
             class="search-result" >
           {{hscode.code}}: {{hscode.description}}
         </li>
       </ul>
   </div>
 </div>
-
-<!-- (click)="gotoDetail(hscode)"  -->
