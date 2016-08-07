@@ -6,7 +6,7 @@
     <ul>
       <li *ngFor="let hscode of hscodes | async"
            (click)="gotoDetail(hscode)" class="search-result" >
-        {{hscode.code}}
+        {{hscode.code}}: {{hscode.description}}
       </li>
     </ul>
   </div>
