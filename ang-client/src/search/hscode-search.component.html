@@ -1,27 +1,15 @@
-<div id="search-component">
-  <h4>Hscode Search</h4>
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  <div>
-    <p>{{hscodes}}</p>
-    <ul>
-      <li *ngFor="let hscode of hscodes | async"
-           (click)="gotoDetail(hscode)" class="search-result" >
-        {{hscode.code}}: {{hscode.description}}
-      </li>
-    </ul>
+<div class="row">
+  <div class="homepage-searchbar" id="search-component">
+      <div>
+        <input #searchBox id="search-box" (keyup)="search(searchBox.value)" type="text" class="form-control" placeholder="Search HS Codes" />
+      </div>
+      <ul class="search-results">
+        <li *ngFor="let hscode of hscodes | async"
+            class="search-result" >
+          {{hscode.code}}: {{hscode.description}}
+        </li>
+      </ul>
   </div>
 </div>
 
-
-<!-- <div class="row">
-  <div class="homepage-searchbar">
-    <div class="col-lg-6">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search HS Codes...">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">Go!</button>
-        </span>
-      </div>
-    </div>
-  </div>
-</div> -->
+<!-- (click)="gotoDetail(hscode)"  -->
