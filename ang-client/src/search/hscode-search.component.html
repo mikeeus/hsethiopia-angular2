@@ -1,14 +1,12 @@
-<div class="row">
-  <div class="homepage-searchbar" id="search-component">
-      <div>
-        <input #searchBox id="search-box" (keyup)="search(searchBox.value)" type="text" class="form-control" placeholder="Search HS Codes" />
-      </div>
-      <ul id="search-results">
-        <li *ngFor="let hscode of hscodes | async"
-            (click)="gotoDetail(hscode)"
-            class="search-result" >
-          {{hscode.code}}: {{hscode.description}}
-        </li>
-      </ul>
-  </div>
+<div class="homepage-searchbar" id="search-component">
+    <div>
+      <input #searchBox id="search-box" (keyup)="search(searchBox.value)" type="text" class="form-control" placeholder="Search HS Codes" />
+    </div>
+    <ul id="search-results">
+      <li *ngFor="let hscode of hscodes | async"
+          (click)="gotoDetail(hscode)"
+          class="search-result" >
+        {{hscode.code}}: {{hscode.description}}
+      </li>
+    </ul>
 </div>

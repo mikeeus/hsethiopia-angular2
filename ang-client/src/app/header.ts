@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {DROPDOWN_DIRECTIVES, CollapseDirective} from 'ng2-bootstrap/ng2-bootstrap';
+import {HscodeSearchComponent} from '../search/hscode-search.component';
 import {years} from './years';
 import {countries} from './countries';
 
@@ -10,7 +11,8 @@ import {countries} from './countries';
   template: require('./header.html'),
   directives: [
     DROPDOWN_DIRECTIVES,
-    CollapseDirective
+    CollapseDirective,
+    HscodeSearchComponent
   ],
   styleUrls: [
     './app/header.scss'

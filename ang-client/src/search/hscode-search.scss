@@ -1,13 +1,15 @@
+#search-box{
+  z-index: 100;
+}
 #search-results{
-  max-height: 150px;
-  height: auto;
-  overflow-y: auto;
-  background: #fff;
-  color: #37474F;
-  font-weight: 600;
-
-  border: 1px solid #BDBDBD;
-  border-top: 0;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  z-index: 99;
+  width: 250px;
+  position: absolute;
+  max-height: 250px;
+  overflow: auto;
+  list-style: none;
+  padding: 5px;
+  background: white;
+  margin-top: -5px;
+  display: none;
 }
