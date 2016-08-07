@@ -8,7 +8,7 @@ import { Hscode } from '../models/hscode';
 @Component({
   selector: 'hscode-search',
   templateUrl: '/search/hscode-search.component.html',
-  styleUrls: ['/search/hscode-search.scss'],
+  styleUrls: ['./search/hscode-search.scss'],
   providers: [HscodeSearchService]
 })
 export class HscodeSearchComponent implements OnInit {

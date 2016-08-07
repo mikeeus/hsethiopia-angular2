@@ -3,7 +3,7 @@
       <div>
         <input #searchBox id="search-box" (keyup)="search(searchBox.value)" type="text" class="form-control" placeholder="Search HS Codes" />
       </div>
-      <ul class="search-results">
+      <ul id="search-results">
         <li *ngFor="let hscode of hscodes | async"
             class="search-result" >
           {{hscode.code}}: {{hscode.description}}

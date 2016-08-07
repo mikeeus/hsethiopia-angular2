@@ -1,7 +1,13 @@
-.search-results{
-  height: 150px;
+#search-results{
+  max-height: 150px;
+  height: auto;
   overflow-y: auto;
-  background: #37474F;
-  color: white;
+  background: #fff;
+  color: #37474F;
   font-weight: 600;
+
+  border: 1px solid #BDBDBD;
+  border-top: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
