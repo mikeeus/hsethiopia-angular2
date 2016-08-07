@@ -10,7 +10,7 @@ export class YearService {
   constructor(private http: Http) {}
 
   getYearData(year: number) {
-    return this.http.get('http://localhost:3000/year/' + year)
+    return this.http.get('http://localhost:3000/api/year/' + year)
       .toPromise()
       .then(response => response.json() as Year)
       .catch(this.handleError);
