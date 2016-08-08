@@ -32,15 +32,15 @@ export class TopTenChartComponent implements OnInit {
   sub: any;
   @Input() chartType: string;
   @Input() chartData: any[];
-
+  
   public barChartOptions: any = chartOptions;
   public barChartLabels: string[] = [
-    '#fff',
+    '',
   ];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
   public barChartColors: Array<any> = [
-    {backgroundColor: ""}
+    {backgroundColor: "#fff"}
   ];
 
   public barChartData: any[] = [
