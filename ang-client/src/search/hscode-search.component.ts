@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/catch';
+import '../rxjs-extension';
 
 import { HscodeSearchService } from './hscode-search.service';
 import { Hscode } from '../models/hscode';
