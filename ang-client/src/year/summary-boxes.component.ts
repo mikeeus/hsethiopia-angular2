@@ -3,7 +3,7 @@ import {Component, Input} from '@angular/core';
 @Component({
   selector: 'summary-boxes',
   templateUrl: '/year/summary-boxes.component.html',
-  styleUrls: ['/year/summary-boxes.component.scss']
+  styleUrls: ['./year/summary-boxes.component.scss']
 })
 export class SummaryBoxesComponent {
   @Input() totalImports: number;

@@ -5,12 +5,14 @@ import {TopTenCharts} from '../models/top-ten-charts';
 import {YearSummaryService} from './year-summary.service';
 import {TopTenChartsService} from '../charts/top-ten-charts.service';
 import {TopTenChartComponent} from '../charts/top-ten-chart.component';
+import {SummaryBoxesComponent} from './summary-boxes.component';
 
 @Component({
   selector: 'year',
   templateUrl: '/year/year.component.html',
   directives: [
-    TopTenChartComponent
+    TopTenChartComponent,
+    SummaryBoxesComponent
   ],
   providers:[
     TopTenChartsService,
