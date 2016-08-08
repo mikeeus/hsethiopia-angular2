@@ -1,6 +1,12 @@
 #search-box{
   z-index: 100;
 }
+@media(max-width: 767px){
+  #search-box{
+    width: 95%;
+    margin-left: 2.5%;
+  }
+}
 #search-results{
   z-index: 99;
   width: 250px;
