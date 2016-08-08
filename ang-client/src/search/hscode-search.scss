@@ -42,7 +42,20 @@
   display: table-cell;
   vertical-align: middle;
 }
-&:hover {
-  color: #fff;
-  background: #48cfad;
+
+
+@media(min-width: 768px){
+  #search-component, #search-box{
+    width: 100% !important;
+  }
+  #search-results{
+    left: 110px;
+    width: 38%;
+  } 
+}
+@media(min-width: 900px){
+  #search-results{
+    left: 110px;
+    width: 48%;
+  } 
 }

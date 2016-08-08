@@ -26,3 +26,16 @@ button.navbar-toggle{
   max-height: 200px;
   overflow-x: hidden;
 }
+
+@media(min-width: 768px){
+  .navbar-searchbar{
+    width: 40%;
+    background: white;
+  } 
+}
+@media(min-width: 900px){
+  .navbar-searchbar{
+    width: 50%;
+    background: blue;
+  }
+}

@@ -1,18 +1,17 @@
-<div class="homepage-searchbar" id="search-component">
-    <div>
-      <input #searchBox id="search-box" (keyup)="search(searchBox.value)" 
+<div id="search-component">
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" 
         (focus)="ShowSearchResults=true" 
         type="text" class="form-control" placeholder="Search HS Codes" />
+  <div id="search-results"
+    *ngIf="ShowSearchResults && searchBox.value.length > 2"
+    #searchResults id="search-results">
+    <div *ngFor="let hscode of hscodes | async"
+        (mousedown)="gotoDetail(hscode)"
+        class="search-result" >
+      <span class="search-result-code">{{hscode.code}}</span>
+      <span class="search-result-description">{{hscode.description}}</span>
     </div>
-    <div *ngIf="ShowSearchResults && searchBox.value.length > 2"
-      #searchResults id="search-results">
-      <div *ngFor="let hscode of hscodes | async"
-          (mousedown)="gotoDetail(hscode)"
-          class="search-result" >
-        <span class="search-result-code">{{hscode.code}}</span>
-        <span class="search-result-description">{{hscode.description}}</span>
-      </div>
-    </div>
+  </div>
 </div>
 
 <!-- (blur)="ShowSearchResults=false" -->
