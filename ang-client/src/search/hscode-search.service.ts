@@ -7,7 +7,7 @@ export class HscodeSearchService {
   search(term: string) {
     if (term.length > 3) {
       return this.http
-                 .get(`http://localhost:3000/api/hscodes/search/${term}`)
+                 .get(`api/hscodes/search/${term}`)
                  .map((r: Response) => r.json() as Hscode[]);
     }
   }

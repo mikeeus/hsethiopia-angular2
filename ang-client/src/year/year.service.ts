@@ -6,7 +6,7 @@ import {Year} from './year';
 
 @Injectable()
 export class YearService {
-  yearUrl: 'http://localhost:3000/api/year/';
+  yearUrl: 'api/year/';
   constructor(private http: Http) {}
 
   getYearData(year: number) {

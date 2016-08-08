@@ -6,8 +6,8 @@ import {Hscode} from '../models/hscode';
 
 @Injectable()
 export class HscodeService {
-  private hscodesUrl = 'http://localhost:3000/api/hscodes';
-  private hscodesChartUrl = 'http://localhost:3000/charts/api/hscode/';
+  private hscodesUrl = 'api/hscodes';
+  private hscodesChartUrl = 'api/charts/hscode/';
   constructor(private http: Http) {}
 
   getHscodes() {

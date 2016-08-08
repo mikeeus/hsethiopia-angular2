@@ -8,8 +8,8 @@ import {AnnualChart} from '../models/annual-chart';
 
 @Injectable()
 export class CountryService {
-  countryUrl: 'http://localhost:3000/api/country/';
-  countryChartUrl: 'http://localhost:3000/api/charts/country/';
+  countryUrl: 'api/country/';
+  countryChartUrl: 'api/charts/country/';
   constructor(private http: Http) {}
 
   // getCountryData(country: string) {
