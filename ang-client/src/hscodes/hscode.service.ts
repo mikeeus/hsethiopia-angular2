@@ -6,7 +6,7 @@ import {Hscode} from '../models/hscode';
 
 @Injectable()
 export class HscodeService {
-  private hscodesUrl = 'api/hscodes';
+  private hscodesUrl = 'api/hscodes/';
   private hscodesChartUrl = 'api/charts/hscode/';
   constructor(private http: Http) {}
 
@@ -18,7 +18,7 @@ export class HscodeService {
   }
 
   getHscode(code: number) {
-    return this.http.get(this.hscodesUrl + '/' + code )
+    return this.http.get(this.hscodesUrl + code )
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);
