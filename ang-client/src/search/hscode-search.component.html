@@ -1,9 +1,11 @@
 <div id="search-component">
-  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" 
-        (focus)="ShowSearchResults=true" 
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)"
+        (blur)="ShowSearchResults=false" 
+        (focus)="ShowSearchResults=true"
+        (focus)="search(searchBox.value)"
         type="text" class="form-control" placeholder="Search HS Codes" />
   <div id="search-results"
-    *ngIf="ShowSearchResults && searchBox.value.length > 2"
+    [hidden]="!ShowSearchResults || searchBox.value.length < 4"
     #searchResults id="search-results">
     <div *ngFor="let hscode of hscodes | async"
         (mousedown)="gotoDetail(hscode)"
@@ -14,4 +16,3 @@
   </div>
 </div>
 
-<!-- (blur)="ShowSearchResults=false" -->
