@@ -29,15 +29,10 @@ export class CountryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.sub = this.route.params.subscribe(params => {
-    //   if (params['country'] !== undefined) {
-    //     this.country = params['country'];
-    //     this.countryChartService.getCountryChartData(this.country)
-    //         .then(countryChartData => {
-    //           this.countryChart = countryChartData;
-    //         })
-    //         .then(this.countryChartComponent.populateChart(this.countryChart));
-    //   }
-    // });
+    this.sub = this.route.params.subscribe(params => {
+      if (params['country'] !== undefined) {
+        this.country = params['country'];
+      }
+    });
   }
 }

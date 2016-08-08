@@ -1,8 +1,17 @@
-<h1 class="text-center" *ngIf="country">{{country}}</h1>
+<div class="row">
+  <div class="col-md-4">
+    <h1 class="text-center" *ngIf="country">{{country}}</h1>
+
+    <h4 class="text-center">Additional country data coming soon.</h4>
+  </div>
+
+  <div class="col-md-8">
+    <annual-chart></annual-chart>
+  </div>
+</div>
 
 <!-- Add charts -->
-<annual-chart></annual-chart>
-
+<!-- 
 <div *ngIf="countryImports">
   <div class="panel panel-warning">
     <div class="panel-heading text-center">
@@ -61,4 +70,4 @@
       </table>
     </div>
   </div>
-</div>
+</div> -->
