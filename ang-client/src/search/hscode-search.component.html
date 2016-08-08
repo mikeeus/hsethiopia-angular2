@@ -1,8 +1,7 @@
 <div id="search-component">
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)"
-        (blur)="ShowSearchResults=false" 
         (focus)="ShowSearchResults=true"
-        (focus)="search(searchBox.value)"
+        (blur)="ShowSearchResults=false" 
         type="text" class="form-control" placeholder="Search HS Codes" />
   <div id="search-results"
     [hidden]="!ShowSearchResults || searchBox.value.length < 4"
