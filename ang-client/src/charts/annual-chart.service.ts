@@ -9,8 +9,8 @@ import {years} from './years';
 @Injectable()
 export class AnnualChartService {
   constructor(private http: Http) {}
-  countryChartUrl = 'api/charts/country/';
-  hscodeChartUrl = 'api/charts/hscode/';
+  countryChartUrl = 'http://localhost:3000/api/charts/country/';
+  hscodeChartUrl = 'http://localhost:3000/api/charts/hscode/';
 
   getCountryChartData(country: string) {
     return this.http.get(this.countryChartUrl + country)
