@@ -1,12 +1,13 @@
 <div class="homepage-searchbar" id="search-component">
     <div>
       <input #searchBox id="search-box" (keyup)="search(searchBox.value)" 
-        
+        (focus)="ShowSearchResults=true" (blur)="ShowSearchResults=false"
         type="text" class="form-control" placeholder="Search HS Codes" />
     </div>
-    <ul #searchResults id="search-results">
+    <ul *ngIf="ShowSearchResults"
+      #searchResults id="search-results">
       <li *ngFor="let hscode of hscodes | async"
-          (click)="gotoDetail(hscode)"
+          (mousedown)="gotoDetail(hscode)"
           class="search-result" >
         {{hscode.code}}: {{hscode.description}}
       </li>
