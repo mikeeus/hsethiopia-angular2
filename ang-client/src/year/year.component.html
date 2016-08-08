@@ -2,12 +2,25 @@
 
 <!-- Add chart here -->
 <h2 class="text-center">Top Ten Countries</h2>
-<top-ten-chart [chartType]="topTenCountriesImport"></top-ten-chart>
-<top-ten-chart [chartType]="topTenCountriesExport"></top-ten-chart>
+<div class="row">
+  <div class="col-md-6">
+    <top-ten-chart [chartType]="topTenCountriesImport"></top-ten-chart>
+  </div>
+  <div class="col-md-6">
+    <top-ten-chart [chartType]="topTenCountriesExport"></top-ten-chart>
+  </div>
+</div>
 
 <h2 class="text-center">Top Ten HS Codes</h2>
-<top-ten-chart [chartType]="topTenHscodesImport"></top-ten-chart>
-<top-ten-chart [chartType]="topTenHscodesExport"></top-ten-chart>
+<div class="row">
+  <div class="col-md-6">
+    <top-ten-chart [chartType]="topTenHscodesImport"></top-ten-chart>
+  </div>
+  <div class="col-md-6">
+    <top-ten-chart [chartType]="topTenHscodesExport"></top-ten-chart>
+  </div>
+</div>
+
 
 
 <div class="row">

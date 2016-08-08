@@ -3,10 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 
 import {YearService} from './year.service';
 import {Year} from './year';
-import {AnnualCountryImports} from './annual-country-imports';
-import {AnnualCountryExports} from './annual-country-exports';
-import {AnnualHscodeImports} from './annual-hscode-imports';
-import {AnnualHscodeExports} from './annual-hscode-exports';
 
 import {TopTenChartsService} from '../charts/top-ten-charts.service';
 import {TopTenChartComponent} from '../charts/top-ten-chart.component';
@@ -23,10 +19,10 @@ import {TopTenChartComponent} from '../charts/top-ten-chart.component';
   ]
 })
 export class YearComponent implements OnInit {
-  annualCountryImports: AnnualCountryImports[];
-  annualCountryExports: AnnualCountryExports[];
-  annualHscodeImports: AnnualHscodeImports[];
-  annualHscodeExports: AnnualHscodeExports[];
+  annualCountryImports: any[];
+  annualCountryExports: any[];
+  annualHscodeImports: any[];
+  annualHscodeExports: any[];
   sub: any;
   year: number;
   topTenCountriesImport: string = "topTenCountriesImport";
@@ -46,10 +42,10 @@ export class YearComponent implements OnInit {
         this.year = +params['year'];
         this.yearService.getYearData(this.year)
             .then(yearData => {
-              this.annualCountryImports = yearData.annualCountryImports;
-              this.annualCountryExports = yearData.annualCountryExports;
-              this.annualHscodeImports = yearData.annualHscodeImports;
-              this.annualHscodeExports = yearData.annualHscodeExports;
+              this.annualCountryImports = yearData.topTenCountriesImports;
+              this.annualCountryExports = yearData.topTenCountriesExports;
+              this.annualHscodeImports = yearData.topTenHscodesImports;
+              this.annualHscodeExports = yearData.topTenHscodesExports;
             });
       }
     });
