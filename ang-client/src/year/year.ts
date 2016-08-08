@@ -1,6 +1,6 @@
-export interface Year {
-  topTenCountriesImports: any[];
-  topTenCountriesExports: any[];
-  topTenHscodesImports: any[];
-  topTenHscodesExports: any[];
+export class Year {
+  topTenCountriesImport: any[];
+  topTenCountriesExport: any[];
+  topTenHscodesImport: any[];
+  topTenHscodesExport: any[];
 }

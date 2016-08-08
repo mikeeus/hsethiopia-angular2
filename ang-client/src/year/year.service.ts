@@ -6,13 +6,15 @@ import {Year} from './year';
 
 @Injectable()
 export class YearService {
-  yearUrl: 'api/year/';
   constructor(private http: Http) {}
+  yearUrl  = 'api/charts/year/';
 
   getYearData(year: number) {
     return this.http.get(this.yearUrl + year)
       .toPromise()
-      .then(response => response.json() as Year)
+      .then(response => 
+        response.json() as Year
+      )
       .catch(this.handleError);
   }
 

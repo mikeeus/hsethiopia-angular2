@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-
-import {YearService} from './year.service';
-import {Year} from './year';
+import {TopTenCharts} from '../models/top-ten-charts';
 
 import {TopTenChartsService} from '../charts/top-ten-charts.service';
 import {TopTenChartComponent} from '../charts/top-ten-chart.component';
@@ -14,15 +12,20 @@ import {TopTenChartComponent} from '../charts/top-ten-chart.component';
     TopTenChartComponent
   ],
   providers:[
-    YearService,
     TopTenChartsService
   ]
 })
 export class YearComponent implements OnInit {
-  annualCountryImports: any[];
-  annualCountryExports: any[];
-  annualHscodeImports: any[];
-  annualHscodeExports: any[];
+  topTenCountriesImports: any[];
+  topTenCountriesExports: any[];
+  topTenHscodesImports: any[];
+  topTenHscodesExports: any[];
+
+  constructor(
+    private route: ActivatedRoute,
+    private topTenChartsService: TopTenChartsService
+  ) {}
+  
   sub: any;
   year: number;
   topTenCountriesImport: string = "topTenCountriesImport";
@@ -30,22 +33,17 @@ export class YearComponent implements OnInit {
   topTenHscodesImport: string = "topTenHscodesImport";
   topTenHscodesExport: string = "topTenHscodesExport";
 
-  constructor(
-    private route: ActivatedRoute,
-    private yearService: YearService,
-    private topTenChartsService: TopTenChartsService
-  ) {}
   
   ngOnInit() {
     this.sub = this.route.params.subscribe( params => {
       if (params['year'] !== undefined) {
         this.year = +params['year'];
-        this.yearService.getYearData(this.year)
-            .then(yearData => {
-              this.annualCountryImports = yearData.topTenCountriesImports;
-              this.annualCountryExports = yearData.topTenCountriesExports;
-              this.annualHscodeImports = yearData.topTenHscodesImports;
-              this.annualHscodeExports = yearData.topTenHscodesExports;
+        this.topTenChartsService.getTopTenChartsData(this.year)
+            .then(response => {
+              this.topTenCountriesImports = response.topTenCountriesImport;
+              this.topTenCountriesExports = response.topTenCountriesExport;
+              this.topTenHscodesImports = response.topTenHscodesImport;
+              this.topTenHscodesExports = response.topTenHscodesExport;
             });
       }
     });

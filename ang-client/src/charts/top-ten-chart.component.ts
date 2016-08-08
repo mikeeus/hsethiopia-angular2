@@ -1,10 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 
 import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 
-import {TopTenChartsService} from './top-ten-charts.service';
+// import {TopTenChartsService} from './top-ten-charts.service';
 
 import {TopTenCharts} from '../models/top-ten-charts';
 
@@ -21,20 +21,21 @@ import {chartOptions} from './chart-options';
     FORM_DIRECTIVES
   ],
   providers: [
-    TopTenChartsService
+    // TopTenChartsService
   ]
 })
 export class TopTenChartComponent implements OnInit {
   constructor(
-    private topTenChartsService: TopTenChartsService,
+    // private topTenChartsService: TopTenChartsService,
     private route: ActivatedRoute
   ) {}
   sub: any;
   @Input() chartType: string;
+  @Input() chartData: any[];
 
   public barChartOptions: any = chartOptions;
   public barChartLabels: string[] = [
-    '',
+    '#fff',
   ];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
@@ -54,15 +55,7 @@ export class TopTenChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      if (params['year'] && params['year'] !== undefined) {
-        let year = +params['year'];
-        this.topTenChartsService.getTopTenChartsData(year)
-            .then(response => {
-              this.formatChartData(response[this.chartType], this.chartType);
-            });
-      }
-   });
+    this.formatChartData(this.chartData, this.chartType);
   }
 
   formatChartData(chartData: any[], type: string) {

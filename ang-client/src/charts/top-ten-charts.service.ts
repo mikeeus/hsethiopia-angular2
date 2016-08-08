@@ -3,14 +3,11 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {TopTenCharts} from '../models/top-ten-charts';
-// import {ChartData} from '../models/charts-data';
-// import {AnnualChart} from '../models/annual-chart';
-// import {years} from './years';
 
 @Injectable()
 export class TopTenChartsService {
   constructor(private http: Http) {}
-  topTenChartsUrl = 'api/charts/year/';
+  topTenChartsUrl = 'http://localhost:3000/api/charts/year/';
 
   getTopTenChartsData(year: number) {
     return this.http.get(this.topTenChartsUrl + year)
