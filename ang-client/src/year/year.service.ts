@@ -6,11 +6,11 @@ import {Year} from './year';
 
 @Injectable()
 export class YearService {
-  yearUrl: 'http://localhost:3000/year/';
+  yearUrl: 'http://localhost:3000/api/year/';
   constructor(private http: Http) {}
 
   getYearData(year: number) {
-    return this.http.get('http://localhost:3000/api/year/' + year)
+    return this.http.get(this.yearUrl + year)
       .toPromise()
       .then(response => response.json() as Year)
       .catch(this.handleError);
