@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class YearSummaryService {
   constructor(private http: Http) {}
-  yearUrl  = 'api/charts/year/';
+  yearUrl  = 'http://localhost:3000/api/year/';
 
   getYearData(year: number) {
     return this.http.get(this.yearUrl + year + '/summary')

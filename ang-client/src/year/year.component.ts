@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TopTenCharts} from '../models/top-ten-charts';
 
+import {YearSummaryService} from './year-summary.service';
 import {TopTenChartsService} from '../charts/top-ten-charts.service';
 import {TopTenChartComponent} from '../charts/top-ten-chart.component';
 
@@ -12,7 +13,8 @@ import {TopTenChartComponent} from '../charts/top-ten-chart.component';
     TopTenChartComponent
   ],
   providers:[
-    TopTenChartsService
+    TopTenChartsService,
+    YearSummaryService
   ]
 })
 export class YearComponent implements OnInit {
@@ -20,10 +22,15 @@ export class YearComponent implements OnInit {
   topTenCountriesExports: any[];
   topTenHscodesImports: any[];
   topTenHscodesExports: any[];
+  totalImports: number;
+  totalExports: number;
+  countriesImportedFrom: number;
+  countriesExportedTo: number;
 
   constructor(
     private route: ActivatedRoute,
-    private topTenChartsService: TopTenChartsService
+    private topTenChartsService: TopTenChartsService,
+    private yearSummaryService: YearSummaryService
   ) {}
   
   sub: any;
@@ -45,6 +52,13 @@ export class YearComponent implements OnInit {
               this.topTenHscodesImports = response.topTenHscodesImport;
               this.topTenHscodesExports = response.topTenHscodesExport;
             });
+        this.yearSummaryService.getYearData(this.year)
+            .then(response => {
+              this.totalImports = response.totalImports;
+              this.totalExports = response.totalExports;
+              this.countriesImportedFrom = response.countriesImportedFrom;
+              this.countriesExportedTo = response.countriesExportedTo;
+            })
       }
     });
   }
