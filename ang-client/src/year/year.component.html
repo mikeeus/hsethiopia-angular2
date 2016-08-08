@@ -1,8 +1,11 @@
 <h1 class="text-center" *ngIf="year">{{year}}</h1>
 
 <!-- Add chart here -->
+<h2 class="text-center">Top Ten Countries</h2>
 <top-ten-chart [chartType]="topTenCountriesImport"></top-ten-chart>
 <top-ten-chart [chartType]="topTenCountriesExport"></top-ten-chart>
+
+<h2 class="text-center">Top Ten HS Codes</h2>
 <top-ten-chart [chartType]="topTenHscodesImport"></top-ten-chart>
 <top-ten-chart [chartType]="topTenHscodesExport"></top-ten-chart>
 
