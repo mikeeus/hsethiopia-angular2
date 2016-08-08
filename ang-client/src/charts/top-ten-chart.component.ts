@@ -38,6 +38,10 @@ export class TopTenChartComponent implements OnInit {
   ];
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
+  public barChartColors: Array<any> = [
+    {backgroundColor: ""}
+  ];
+
   public barChartData: any[] = [
     {data: [0], label: "No Data Available"}
   ];
@@ -74,21 +78,25 @@ export class TopTenChartComponent implements OnInit {
 
         _chartData.labels[i] = chartData[i][1];
         this.barChartData[0].label = 'Import';
+        this.barChartColors[0].backgroundColor = "#ffeb3b";
 
       } else if (type === 'topTenCountriesExport') {
 
         _chartData.labels[i] = chartData[i][1];
         this.barChartData[0].label = 'Export';
+        this.barChartColors[0].backgroundColor = "#8bc34a";
 
       } else if (type === 'topTenHscodesImport') {
 
         _chartData.labels[i] = chartData[i][1][0];
         this.barChartData[0].label = 'Import';
+        this.barChartColors[0].backgroundColor = "#ffeb3b";
 
       } else if (type === 'topTenHscodesExport') {
 
         _chartData.labels[i] = chartData[i][1][0];
         this.barChartData[0].label = 'Export';
+        this.barChartColors[0].backgroundColor = "#8bc34a";
 
       }
 

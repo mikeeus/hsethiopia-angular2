@@ -34,6 +34,10 @@ export class AnnualChartComponent implements OnInit {
   public barChartLabels: string[] = years;
   public barChartType: string = 'bar';
   public barChartLegend: boolean = true;
+  public barChartColors: Array<any> = [
+    {backgroundColor: "#ffeb3b"},
+    {backgroundColor: "#8bc34a"}
+  ];
   public barChartData: any[] = [
     {data: [0], label: "Imports"},
     {data: [0], label: "Exports"}
