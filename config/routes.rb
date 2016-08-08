@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/api/country/:country' => 'matviews#country', as: :country
   get '/api/year/:year' => 'matviews#year'
+  get '/api/year/:year/summary' => 'matviews#year_summary'
   get '/api/hscode/:code' => 'matviews#hscode'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
