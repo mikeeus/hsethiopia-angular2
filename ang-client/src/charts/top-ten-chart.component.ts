@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, OnChanges} from '@angular/core';
+import {Component, Input, OnInit, OnChanges, SimpleChange} from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 
@@ -55,6 +55,10 @@ export class TopTenChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.formatChartData(this.chartData, this.chartType);
+  }
+
+  ngOnChanges(changes: {['chartData']: SimpleChange}){
     this.formatChartData(this.chartData, this.chartType);
   }
 
