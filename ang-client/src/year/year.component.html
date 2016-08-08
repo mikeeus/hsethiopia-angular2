@@ -1,5 +1,14 @@
 <h1 class="text-center" *ngIf="year">{{year}}</h1>
 
+<div class="row">
+  <summary-boxes
+    *ngIf="countriesExportedTo"
+    [totalImports]="totalImports"
+    [totalExports]="totalExports"
+    [countriesImportedFrom]="countriesImportedFrom"
+    [countriesExportedTo]="countriesExportedTo"></summary-boxes>
+</div>
+
 <!-- Add chart here -->
 <h2 class="text-center">Top Ten Countries</h2>
 <div class="row">
