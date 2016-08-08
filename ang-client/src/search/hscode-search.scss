@@ -8,13 +8,35 @@
   }
 }
 #search-results{
+  overflow: hidden;
   z-index: 99;
-  width: 250px;
+  width: 95%;
+  margin-left: 2.5%;
   position: absolute;
   max-height: 250px;
   overflow: auto;
   list-style: none;
   padding: 5px;
-  background: white;
-  margin-top: -5px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 3px;
+  border: 1px solid rgba(170, 178, 189, 0.5);
+}
+.search-result{
+    color: #1d6351;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+.search-result-code{
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+.search-result-description{
+  display: table-cell;
+  vertical-align: middle;
+}
+&:hover {
+  color: #fff;
+  background: #48cfad;
 }
