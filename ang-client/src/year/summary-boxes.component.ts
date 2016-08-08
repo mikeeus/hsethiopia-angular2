@@ -1,6 +1,10 @@
-import {Injectable} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
-@Injectable()
+@Component({
+  selector: 'summary-boxes',
+  templateUrl: '/year/summary-boxes.component.html',
+  styleUrls: ['/year/summary-boxes.component.scss']
+})
 export class SummaryBoxesComponent {
   @Input() totalImports: number;
   @Input() totalExports: number;
