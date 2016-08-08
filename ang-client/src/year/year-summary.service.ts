@@ -2,10 +2,8 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import {Year} from './year';
-
 @Injectable()
-export class YearService {
+export class YearSummaryService {
   constructor(private http: Http) {}
   yearUrl  = 'api/charts/year/';
 
