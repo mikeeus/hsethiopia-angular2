@@ -3,6 +3,8 @@
 <!-- Add chart here -->
 <h2 class="text-center">Top Ten Countries</h2>
 <div class="row">
+
+  <h3 class="text-center">Imports</h3>
   <div class="col-md-6">
     <top-ten-chart [chartType]="topTenCountriesImport" 
                    *ngIf="topTenCountriesImports"
@@ -23,6 +25,8 @@
     </table>
 
   </div>
+
+  <h3 class="text-center">Exports</h3>
   <div class="col-md-6">
     <top-ten-chart [chartType]="topTenCountriesExport"
                    *ngIf="topTenCountriesExports"
@@ -48,6 +52,8 @@
 
 <h2 class="text-center">Top Ten HS Codes</h2>
 <div class="row">
+
+  <h3 class="text-center">Imports</h3>
   <div class="col-md-6">
     <top-ten-chart [chartType]="topTenHscodesImport"
                    *ngIf="topTenHscodesImports"
@@ -69,6 +75,8 @@
     </table>
 
   </div>
+
+  <h3 class="text-center">Exports</h3>
   <div class="col-md-6">
     <top-ten-chart [chartType]="topTenHscodesExport"
                    *ngIf="topTenHscodesExports"
