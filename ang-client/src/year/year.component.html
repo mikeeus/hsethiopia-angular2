@@ -23,13 +23,13 @@
     <table class="table">
       <thead>
         <tr>
+          <th>CIF</th>
           <th>Country</th>
-          <th>CIF ($)</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let import of topTenCountriesImports">
-          <td>{{import[0]}}</td>
+          <td>{{(import[0] - 0) | currency:'USD':true:'.2' }}</td>
           <td>{{import[1]}}</td>
         </tr>
       </tbody>
@@ -48,13 +48,13 @@
     <table class="table">
       <thead>
         <tr>
+          <th>FOB</th>
           <th>Country</th>
-          <th>CIF ($)</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let import of topTenCountriesExports">
-          <td>{{import[0]}}</td>
+          <td>{{(import[0] - 0) | currency:'USD':true:'.2' }}</td>
           <td>{{import[1]}}</td>
         </tr>
       </tbody>
@@ -77,14 +77,14 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Country</th>
-          <th>CIF ($)</th>
+          <th>CIF</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let import of topTenHscodesImports">
-          <td>{{import[0]}}</td>
-          <td>{{import[1]}}</td>
+          <td>{{(import[0] - 0) | currency:'USD':true:'.2' }}</td>
+          <td>{{import[1][1]}}</td>
         </tr>
       </tbody>
     </table>
@@ -102,14 +102,14 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Country</th>
-          <th>CIF ($)</th>
+          <th>FOB</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let import of topTenHscodesExports">
-          <td>{{import[0]}}</td>
-          <td>{{import[1]}}</td>
+          <td>{{(import[0] - 0) | currency:'USD':true:'.2' }}</td>
+          <td>{{import[1][1]}}</td>
         </tr>
       </tbody>
     </table>
