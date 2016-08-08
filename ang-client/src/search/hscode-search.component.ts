@@ -19,11 +19,15 @@ export class HscodeSearchComponent implements OnInit {
     private hscodeSearchService: HscodeSearchService
   ) {}
 
-  hscodes: Observable<Hscode[]>;
   searchSubject = new Subject<string>();
+  hscodes: Observable<Hscode[]> = Observable.of<Hscode[]>([]);
 
   // Push a search term into the observable stream.
-  search(term: string) { this.searchSubject.next(term); }
+  search(term: string) { 
+    if (term.length > 3) {
+      this.searchSubject.next(term); 
+    }
+  }
 
   ngOnInit() {
     this.hscodes = this.searchSubject
