@@ -8,10 +8,18 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" (click)="gotoLink('')">HS Ethiopia</a>
+
+
     </div>
 
      <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" [collapse]="isCollapsed">
+      <div class="navbar-form navbar-left">
+        <div class="form-group">
+          <hscode-search></hscode-search>
+        </div>
+      </div>
+
       <ul class="nav navbar-nav">
         
         <!-- Countries -->
@@ -39,13 +47,9 @@
         </li>
 
       </ul>
-      <div class="navbar-form navbar-right">
-        <div class="form-group">
-          <hscode-search></hscode-search>
-        </div>
-      </div>
 
     </div><!-- /.navbar-collapse -->
+
 
   </div>
 </nav>
