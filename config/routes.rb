@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   # Tables
   get '/api/hscodes/:code/tables' => 'hscodes#tables', as: :hscode_tables
+
   # Charts/ Matviews routes
+  get '/api/charts/homepage' => 'matviews#homepage', as: :homepage
   get '/api/charts/country/:country' => 'matviews#country', as: :country_chart
   get '/api/charts/year/:year' => 'matviews#year', as: :year
   get '/api/charts/hscode/:code' => 'matviews#hscode', as: :hscode_matview
