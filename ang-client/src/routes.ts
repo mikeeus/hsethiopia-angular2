@@ -30,7 +30,7 @@ export class Root {
 
 export const routes: RouterConfig = [
   {
-    path: '/dashboard',
+    path: 'dashboard',
     component: DashboardComponent
   },
   {
