@@ -66,6 +66,9 @@ export class AnnualChartComponent implements OnInit {
               this.barChartData = response;
               // console.log(response);
              });
+      } else {
+        this.annualChartService.getHomepageChartData()
+            .then(response => this.barChartData = response);
       }
    });
   }

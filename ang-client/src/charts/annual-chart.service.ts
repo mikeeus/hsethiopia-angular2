@@ -9,6 +9,7 @@ import {years} from './years';
 @Injectable()
 export class AnnualChartService {
   constructor(private http: Http) {}
+  homepageChartUrl = 'http://localhost:3000/api/charts/homepage/';
   countryChartUrl = 'http://localhost:3000/api/charts/country/';
   hscodeChartUrl = 'http://localhost:3000/api/charts/hscode/';
 
@@ -31,6 +32,15 @@ export class AnnualChartService {
       .catch(this.handleError);
   }
   
+  getHomepageChartData() {
+    return this.http.get(this.homepageChartUrl)
+               .toPromise()
+               .then(response => {
+                 return this.populateChartData(response.json() as AnnualChart);
+               })
+               .catch(this.handleError);
+  }
+
   populateChartData(chart: AnnualChart) {
     let labels = years;
     let _chartData: Array<any> = new Array(2);
