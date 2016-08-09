@@ -23,7 +23,8 @@ task country_names: :environment do
   el_savador = {incorrect: ["Elsalvador"], correct: "El Salvador"}
   germany = {incorrect: ["United Germany"], correct: "Germany"}
   iran = {incorrect: ["Iran, Islamic Republic of", "Iran (Islamic Republic Of)", "Iran Islamic Republic of"], correct: "Iran"}
-  south_korea = {incorrect: ["Korea, Democratic People's Rep. of", "Korea, Democratic People's Rep.", "Korea Dem.People's Rep. Of", "Korea Democratic People&#39;s Rep. of", "Korea Democratic People's Rep.", "Korea Republic Of", "Korea Republic of",  "Korea, Republic of"], correct: "South Korea"}
+  south_korea = {incorrect: ["Korea, Democratic People's Rep. of", "Korea, Democratic People's Rep.", "Korea Dem.People's Rep. Of", 
+    "Korea Democratic People&#39;s Rep. of", "Korea  Dem.People&#39;s Rep. Of", "Korea Democratic People's Rep.", "Korea Republic Of", "Korea Republic of",  "Korea, Republic of"], correct: "South Korea"}
   lao = {incorrect: ["Lao", "Lao People's Dem. Republic", "Lao People&#39;s Democratic Republic", "Lao People's Democratic Republi"], correct: "Laos"}
   libya = {incorrect: ["Libyan Arab Jamahiriya", "Lybian Arab Jamahiriya"], correct: "Libya"}
   micronesia = {incorrect: ["Micronesia Federated States of"], correct: "Micronesia"}
