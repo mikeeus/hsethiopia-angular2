@@ -7,10 +7,10 @@ import {AnnualChartComponent} from '../charts/annual-chart.component';
   templateUrl: '/hscodes/hscodes.component.html',
   directives: [
     AnnualChartComponent
-  ],
-  providers: []
+  ]
 })
 export class HscodesComponent implements OnInit {
+  chartType = "homepage";
   constructor() {}
 
   ngOnInit(){

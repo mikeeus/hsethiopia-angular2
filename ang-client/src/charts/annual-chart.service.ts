@@ -49,10 +49,10 @@ export class AnnualChartService {
     _chartData[1] = {data: new Array(labels.length), label: "Exports"};
 
     for (let i = 0; i < labels.length; i++){
-      _chartData[0].data[i] = chart.imports[labels[i]];
+      _chartData[0].data[i] = chart.annualImports[labels[i]];
     }
     for (let j = 0; j < labels.length; j++){
-      _chartData[1].data[j] = chart.exports[labels[j]];
+      _chartData[1].data[j] = chart.annualExports[labels[j]];
     }
 
     return _chartData;

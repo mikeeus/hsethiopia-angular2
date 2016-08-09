@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 
@@ -25,6 +25,7 @@ import {chartOptions} from './chart-options';
   ]
 })
 export class AnnualChartComponent implements OnInit {
+  @Input() chartType: string;
   constructor(
     private annualChartService: AnnualChartService,
     private route: ActivatedRoute
@@ -66,9 +67,12 @@ export class AnnualChartComponent implements OnInit {
               this.barChartData = response;
               // console.log(response);
              });
-      } else {
+      } else if (this.chartType = "homepage") {
         this.annualChartService.getHomepageChartData()
-            .then(response => this.barChartData = response);
+            .then(response => {
+              this.barChartData = response;
+              console.log(response);
+            });
       }
    });
   }

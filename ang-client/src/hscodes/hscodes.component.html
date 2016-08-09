@@ -28,17 +28,18 @@
       <p>
         You can search and select an HS Code from the table, select a country from the drop down in the header or check out one of the annual summaries from the dropdown link above.
 
-        <!-- If you have any questions about the site or feedback on how to improve it, please send an email to ----@gmail.com -->
+        <!-- If you have any questions about the site or feedback on how to improve it, please send an email to @gmail.com -->
 
         Good luck and happy browsing!
       </p>
       <small>
-        The data on this site is available to the public from the <%= link_to 'Ethiopian Revenue and Customs Authority (ERCA)', "http://www.erca.gov.et/", target: "_blank" %> and is updated every two months.
+        The data on this site is available to the public from the 
+        <a style="color: #26816a;" href="http://www.erca.gov.et/" target="_blank">Ethiopian Revenue and Customs Authority (ERCA)</a> and is updated every two months.
       </small>
     </div>
   </div>
 
   <div class="col-md-8">
-    <annual-chart></annual-chart>
+    <annual-chart [chartType]="chartType"></annual-chart>
   </div>
 </div>
