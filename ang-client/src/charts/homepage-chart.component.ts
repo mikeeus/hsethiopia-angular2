@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {HomepageChartService} from './homepage-chart.component';
 
-import {HomepageChart} from '../models/homepage-chart';
+import {AnnualChart} from '../models/annual-chart';
 import {chartOptions} from './chart-options';
 import {years} from './years';
 
@@ -14,7 +14,7 @@ import {years} from './years';
   ]
 })
 export class HomepageChartComponent {
-  homepageChart = HomepageChart;
+  homepageChart: AnnualChart;
   constructor(private homepageChartService: HomepageChartService) {}
 
     sub: any;

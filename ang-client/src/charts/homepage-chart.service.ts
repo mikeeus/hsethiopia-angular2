@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import {HomepageChart} from '../models/homepage-chart';
+import {AnnualChart} from '../models/annual-chart';
 import {years} from './years';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class HomepageChartService {
   getChartData() {
     return this.http.get(this.homepageChartUrl)
       .toPromise()
-      .then(response => response.json() as HomepageChart)
+      .then(response => response.json() as AnnualChart)
       .catch(this.handleError);
   }
 
