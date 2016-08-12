@@ -8,7 +8,6 @@ import './vendor/bootflat/css/bootflat.min.css';
 import 'chart.js';
 import "./rxjs-extension";
 import {bootstrap} from '@angular/platform-browser-dynamic';
-// import './rxjs-operators';
 import './index.scss';
 
 import {provideRouter} from '@angular/router';
