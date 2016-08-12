@@ -13,6 +13,8 @@ import './index.scss';
 import {provideRouter} from '@angular/router';
 import {enableProdMode} from '@angular/core';
 import {routes, Root} from './routes';
+import {Auth} from './auth/auth.service';
+import {AuthGuard} from './auth/auth-guard.service';
 
 declare var process: any;
 if (process.env.NODE_ENV === 'production') {
@@ -20,5 +22,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 bootstrap(Root, [
+  AuthGuard,
+  Auth,
   provideRouter(routes)
 ]);
