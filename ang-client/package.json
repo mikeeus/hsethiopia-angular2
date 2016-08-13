@@ -1,4 +1,7 @@
 {
+  "name": "hsethiopia-ng2",
+  "author": "Mikias Abera",
+  "license": "MIT",
   "dependencies": {
     "@angular/common": "2.0.0-rc.4",
     "@angular/compiler": "2.0.0-rc.4",
@@ -66,7 +69,7 @@
   "devDependencies": {
   },
   "scripts": {
-    "postinstall": "typings install && gulp check.versions && npm prune && gulp build.prod",
+    "postinstall": "typings install && gulp build.prod",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
