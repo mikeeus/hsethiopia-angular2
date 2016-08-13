@@ -77,12 +77,14 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Code</th>
           <th>Description</th>
           <th>CIF</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let hscodeImport of topTenHscodesImports">
+          <td>{{hscodeImport[1][0]}}</td>
           <td>{{hscodeImport[1][1]}}</td>
           <td>{{(hscodeImport[0] - 0) | currency:'USD':true:'.2' }}</td>
         </tr>
@@ -102,12 +104,14 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Code</th>
           <th>Description</th>
           <th>FOB</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let hscodeExport of topTenHscodesExports">
+          <td>{{hscodeImport[1][0]}}</td>
           <td>{{hscodeExport[1][1]}}</td>
           <td>{{(hscodeExport[0] - 0) | currency:'USD':true:'.2' }}</td>
         </tr>
