@@ -29,5 +29,10 @@ module Portfolio
 
     # Use sql for schema format
     config.active_record.schema_format = :sql
+
+    # config.action_dispatch.default_headers = {
+    #   'Access-Control-Allow-Origin' => 'http://localhost:3001',
+    #   'Access-Control-Request-Method' => %w{GET}.join(",")
+    # }
   end
 end

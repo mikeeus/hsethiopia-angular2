@@ -9,6 +9,8 @@ import {HscodesComponent} from './hscodes/hscodes.component';
 import {HscodeDetailComponent} from './hscodes/hscode-detail.component';
 import {YearComponent} from './year/year.component';
 import {CountryComponent} from './country/country.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {AuthGuard} from './auth/auth-guard.service';
 
 import {Header} from './app/header';
 import {Footer} from './app/footer';
@@ -22,12 +24,17 @@ import {Footer} from './app/footer';
     Header,
     Footer
   ],
-  providers: [HTTP_PROVIDERS]
+  providers: [HTTP_PROVIDERS, AuthGuard]
 })
 export class Root {
 }
 
 export const routes: RouterConfig = [
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: 'hscode/:code',
     component: HscodeDetailComponent
