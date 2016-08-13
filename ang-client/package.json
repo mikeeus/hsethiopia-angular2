@@ -69,7 +69,7 @@
   "devDependencies": {
   },
   "scripts": {
-    "postinstall": "typings install && gulp build",
+    "postinstall": "gulp serve:full-stack",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
