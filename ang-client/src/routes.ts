@@ -2,7 +2,6 @@
 
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, RouterConfig} from '@angular/router';
-import {Main} from './app/main';
 import {HTTP_PROVIDERS} from '@angular/http';
 
 import {HscodesComponent} from './hscodes/hscodes.component';
