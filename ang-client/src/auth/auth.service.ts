@@ -9,7 +9,11 @@ export class Auth {
   options: any = {
     closable: false,
     allowedConnections: ['Username-Password-Authentication'],
-    allowSignUp: false
+    allowSignUp: false,
+    auth: {
+      redirect: true,
+      redirectUrl: ''
+    }
   }
   // configure Auth0
   lock = new Auth0Lock('wDsjnBtQyiyBzWolgHIv9BXg8Ek9tL4X', 

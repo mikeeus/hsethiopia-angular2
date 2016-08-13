@@ -50,5 +50,10 @@ export const routes: RouterConfig = [
   {
     path: '',
     component: HscodesComponent
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    component: HscodesComponent
   }
 ];
