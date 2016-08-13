@@ -11,13 +11,14 @@ export class AuthGuard implements CanActivate {
 
    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this.auth.authenticated()) { return true; }
-
+    else if (!this.auth.authenticated()) {
+      // Navigate to the login page
+      this.auth.lock.show();
+      return false;
+    }
     // Store the attempted URL for redirecting
     // this.auth.redirectUrl = state.url;
 
-    // Navigate to the login page
-    this.auth.lock.show();
-    return false;
     
   }
 

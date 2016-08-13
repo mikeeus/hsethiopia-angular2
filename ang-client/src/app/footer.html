@@ -5,6 +5,10 @@
       Mikias Abera
     </a>
     <span class="little-button"
-      (click)="gotoDashboard()"></span>
+      *ngIf="!auth.authenticated()"
+      (click)="auth.login()"></span>
+    <span class="little-button"
+      *ngIf="auth.authenticated()"
+      (click)="auth.logout()"></span>
   </span>
 </footer>
