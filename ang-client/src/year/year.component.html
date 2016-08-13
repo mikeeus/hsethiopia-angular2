@@ -23,14 +23,14 @@
     <table class="table">
       <thead>
         <tr>
-          <th>CIF</th>
           <th>Country</th>
+          <th>CIF</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let import of topTenCountriesImports">
-          <td>{{(import[0] - 0) | currency:'USD':true:'.2' }}</td>
-          <td>{{import[1]}}</td>
+        <tr *ngFor="let countryImport of topTenCountriesImports">
+          <td>{{countryImport[1]}}</td>
+          <td>{{(countryImport[0] - 0) | currency:'USD':true:'.2' }}</td>
         </tr>
       </tbody>
     </table>
@@ -48,14 +48,14 @@
     <table class="table">
       <thead>
         <tr>
-          <th>FOB</th>
           <th>Country</th>
+          <th>FOB</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let import of topTenCountriesExports">
-          <td>{{(import[0] - 0) | currency:'USD':true:'.2' }}</td>
-          <td>{{import[1]}}</td>
+        <tr *ngFor="let countryExport of topTenCountriesExports">
+          <td>{{countryExport[1]}}</td>
+          <td>{{(countryExport[0] - 0) | currency:'USD':true:'.2' }}</td>
         </tr>
       </tbody>
     </table>
@@ -77,14 +77,14 @@
     <table class="table">
       <thead>
         <tr>
-          <th>CIF</th>
           <th>Description</th>
+          <th>CIF</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let import of topTenHscodesImports">
-          <td>{{(import[0] - 0) | currency:'USD':true:'.2' }}</td>
-          <td>{{import[1][1]}}</td>
+        <tr *ngFor="let hscodeImport of topTenHscodesImports">
+          <td>{{hscodeImport[1][1]}}</td>
+          <td>{{(hscodeImport[0] - 0) | currency:'USD':true:'.2' }}</td>
         </tr>
       </tbody>
     </table>
@@ -102,14 +102,14 @@
     <table class="table">
       <thead>
         <tr>
-          <th>FOB</th>
           <th>Description</th>
+          <th>FOB</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let import of topTenHscodesExports">
-          <td>{{(import[0] - 0) | currency:'USD':true:'.2' }}</td>
-          <td>{{import[1][1]}}</td>
+        <tr *ngFor="let hscodeExport of topTenHscodesExports">
+          <td>{{hscodeExport[1][1]}}</td>
+          <td>{{(hscodeExport[0] - 0) | currency:'USD':true:'.2' }}</td>
         </tr>
       </tbody>
     </table>
