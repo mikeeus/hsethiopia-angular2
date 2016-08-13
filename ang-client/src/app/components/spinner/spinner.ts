@@ -2,7 +2,8 @@ import {Component, Input, OnDestroy} from 'angular2/core';
 
 @Component({
     selector: 'my-spinner',
-    templateUrl: 'app/components/spinner/spinner.html'
+    templateUrl: 'app/components/spinner/spinner.html',
+    styleUrls: ['app/components/spinner/spinner.scss']
 })
 export class SpinnerComponent implements OnDestroy {  
   private currentTimeout: number;
@@ -13,19 +14,19 @@ export class SpinnerComponent implements OnDestroy {
 
   @Input()
   public set isRunning(value: boolean) {
-      if (!value) {
-          this.cancelTimeout();
-          return this.isDelayedRunning = false;
-      }
+    if (!value) {
+        this.cancelTimeout();
+        return this.isDelayedRunning = false;
+    }
 
-      if (this.currentTimeout) {
-          return;
-      }
+    if (this.currentTimeout) {
+        return;
+    }
 
-      this.currentTimeout = setTimeout(() => {
-          this.isDelayedRunning = value;
-          this.cancelTimeout();
-      }, this.delay);
+    this.currentTimeout = setTimeout(() => {
+        this.isDelayedRunning = value;
+        this.cancelTimeout();
+    }, this.delay);
   }
 
   private cancelTimeout(): void {
