@@ -6,9 +6,14 @@ declare var Auth0Lock: any;
 
 @Injectable()
 export class Auth {
+  options: any = {
+    closable: false,
+    allowedConnections: ['Username-Password-Authentication'],
+    allowSignUp: false
+  }
   // configure Auth0
   lock = new Auth0Lock('wDsjnBtQyiyBzWolgHIv9BXg8Ek9tL4X', 
-                       'mikeeus.auth0.com', {});
+                       'mikeeus.auth0.com', this.options);
   constructor() {
     // Add callback for lock 'authenticated' event
     this.lock.on('authenticated', (authResult) => {
