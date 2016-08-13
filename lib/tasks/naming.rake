@@ -24,8 +24,8 @@ task country_names: :environment do
   germany = {incorrect: ["United Germany"], correct: "Germany"}
   iran = {incorrect: ["Iran, Islamic Republic of", "Iran (Islamic Republic Of)", "Iran Islamic Republic of"], correct: "Iran"}
   south_korea = {incorrect: ["Korea, Democratic People's Rep. of", "Korea, Democratic People's Rep.", "Korea Dem.People's Rep. Of", 
-    "Korea Democratic People&#39;s Rep. of", "Korea  Dem.People&#39;s Rep. Of", "Korea Democratic People's Rep.", "Korea Republic Of", "Korea Republic of",  "Korea, Republic of"], correct: "South Korea"}
-  lao = {incorrect: ["Lao", "Lao People's Dem. Republic", "Lao People&#39;s Democratic Republic", "Lao People's Democratic Republi"], correct: "Laos"}
+    "Korea Democratic People&#39;s Rep. of", "Korea  Dem.People&#39;s Rep. Of", "Korea Democratic People's Rep.", "Korea Republic Of", "Korea Republic of",  "Korea, Republic of", "Korea  Republic Of"], correct: "South Korea"}
+  lao = {incorrect: ["Lao", "Lao People's Dem. Republic", "Lao People&#39;s Democratic Republic", "Lao People's Democratic Republi", "Lao People&#39;s Democratic Republic"], correct: "Laos"}
   libya = {incorrect: ["Libyan Arab Jamahiriya", "Lybian Arab Jamahiriya"], correct: "Libya"}
   micronesia = {incorrect: ["Micronesia Federated States of"], correct: "Micronesia"}
   moldova = {incorrect: ["Republic of Moldova"], correct: "Moldova"}
@@ -44,9 +44,12 @@ task country_names: :environment do
   slovenia = {incorrect: ["Sloviena"], correct: "Slovenia"}
   ukraine = {incorrect: ["Ukrain"], correct: "Ukraine"}
   uk = {incorrect: ["Great Britain"], correct: "United Kingdom"}
+  guinea = {incorrect: ["Guinea Bissau", "GuineaBissau"], correct: "Guinea-Bissau"}
+  wallis = {incorrect: ["Wallis And Futuna Islands"], correct: "Wallis and Futuna Islands"}
+  christmas = {incorrect: ["Christmas Island[Australia]"], correct: "Christmas Island (Australia)"}
 
 
-  countries = [afghanistan, antigua, congo, cote_d_ivoire, yemen, el_savador, germany, iran, south_korea, lao, libya, micronesia, moldova, russia, st_helena, kitts_nevis, vincent_grenadines, pierre_miquelon, syria, taiwan, tanzania, macedonia, trinidad, turks, us_virgin_islands, slovenia, ukraine, uk]
+  countries = [afghanistan, antigua, congo, cote_d_ivoire, yemen, el_savador, germany, iran, south_korea, lao, libya, micronesia, moldova, russia, st_helena, kitts_nevis, vincent_grenadines, pierre_miquelon, syria, taiwan, tanzania, macedonia, trinidad, turks, us_virgin_islands, slovenia, ukraine, uk, guinea, wallis, christmas]
 
   countries.each do |c|
     format_country_name(c)
