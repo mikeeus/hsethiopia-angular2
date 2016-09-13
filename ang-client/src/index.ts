@@ -12,7 +12,7 @@ import './index.scss';
 
 import {provideRouter} from '@angular/router';
 import {enableProdMode} from '@angular/core';
-import {routes, Root} from './routes';
+import {routes, Root} from './root';
 import {Auth} from './auth/auth.service';
 import {AuthGuard} from './auth/auth-guard.service';
 

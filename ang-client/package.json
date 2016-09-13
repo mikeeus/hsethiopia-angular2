@@ -71,7 +71,9 @@
   "devDependencies": {
   },
   "scripts": {
-    "postinstall": "gulp serve:full-stack",
+    "typings": "typings install",
+    "clean": "rm -rf dist",
+    "postinstall": "npm run typings",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
